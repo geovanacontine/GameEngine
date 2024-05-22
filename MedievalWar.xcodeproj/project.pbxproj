@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0155A0E72BBB1F48008AEA0B /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0E62BBB1F48008AEA0B /* GameView.swift */; };
+		0155A0EE2BBB26DC008AEA0B /* PositionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0ED2BBB26DC008AEA0B /* PositionComponent.swift */; };
+		0155A0F02BBB382C008AEA0B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0EF2BBB382C008AEA0B /* GameScene.swift */; };
+		0155A0F32BBB3A61008AEA0B /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0F22BBB3A61008AEA0B /* System.swift */; };
+		0155A0F52BBB3A70008AEA0B /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0F42BBB3A70008AEA0B /* Component.swift */; };
+		0155A0F72BBB3A7E008AEA0B /* GameOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0F62BBB3A7E008AEA0B /* GameOutput.swift */; };
+		0155A0FB2BBB4113008AEA0B /* BodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0FA2BBB4113008AEA0B /* BodyComponent.swift */; };
+		0155A0FD2BBB4297008AEA0B /* VelocityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0FC2BBB4297008AEA0B /* VelocityComponent.swift */; };
+		0155A0FF2BBB4347008AEA0B /* MovementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0FE2BBB4347008AEA0B /* MovementSystem.swift */; };
+		0155A1042BBB488A008AEA0B /* Prefab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A1032BBB488A008AEA0B /* Prefab.swift */; };
+		019352E52BBDA0B50082A1BF /* AABB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019352E42BBDA0B50082A1BF /* AABB.swift */; };
+		019352E72BBDA11E0082A1BF /* BVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019352E62BBDA11E0082A1BF /* BVH.swift */; };
+		01BCBBA42BBC1B160036BD81 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA32BBC1B160036BD81 /* Array+Extension.swift */; };
+		01BCBBA62BBC1DC00036BD81 /* MedievalWarGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */; };
+		01BCBBA82BBC6C560036BD81 /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA72BBC6C560036BD81 /* GameInput.swift */; };
+		01BCBBAA2BBC6DCF0036BD81 /* InputSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */; };
+		01BCBBAE2BBC71E40036BD81 /* AppleKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBAD2BBC71E40036BD81 /* AppleKeyboard.swift */; };
+		01BCBBB02BBC73E60036BD81 /* InputDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBAF2BBC73E60036BD81 /* InputDevice.swift */; };
+		01BEF8462BBDBEB800E81A41 /* PhysicsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEF8452BBDBEB800E81A41 /* PhysicsSystem.swift */; };
+		01CE7F2A2BB5D2F2003B73CC /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE7F292BB5D2F2003B73CC /* MainApp.swift */; };
+		01CE7F2E2BB5D2F3003B73CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CE7F2D2BB5D2F3003B73CC /* Assets.xcassets */; };
+		01CE7F312BB5D2F3003B73CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CE7F302BB5D2F3003B73CC /* Preview Assets.xcassets */; };
+		01CE7F392BB5D345003B73CC /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE7F382BB5D345003B73CC /* World.swift */; };
+		01ED03672BFE1B4700E3EFA4 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03562BFE1B4700E3EFA4 /* MetalView.swift */; };
+		01ED03682BFE1B4700E3EFA4 /* MetalRenderSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03572BFE1B4700E3EFA4 /* MetalRenderSystem.swift */; };
+		01ED03692BFE1B4700E3EFA4 /* FlyweightFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03582BFE1B4700E3EFA4 /* FlyweightFactory.swift */; };
+		01ED036A2BFE1B4700E3EFA4 /* simd+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03592BFE1B4700E3EFA4 /* simd+Extensions.swift */; };
+		01ED036B2BFE1B4700E3EFA4 /* MetalLibraryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED035A2BFE1B4700E3EFA4 /* MetalLibraryError.swift */; };
+		01ED036C2BFE1B4700E3EFA4 /* MetalRenderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED035B2BFE1B4700E3EFA4 /* MetalRenderManager.swift */; };
+		01ED036D2BFE1B4700E3EFA4 /* MetalRenderObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED035C2BFE1B4700E3EFA4 /* MetalRenderObject.swift */; };
+		01ED036E2BFE1B4700E3EFA4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 01ED035D2BFE1B4700E3EFA4 /* Shaders.metal */; };
+		01ED03702BFE1B4700E3EFA4 /* FragmentShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03602BFE1B4700E3EFA4 /* FragmentShaderLibrary.swift */; };
+		01ED03712BFE1B4700E3EFA4 /* MeshLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03612BFE1B4700E3EFA4 /* MeshLibrary.swift */; };
+		01ED03722BFE1B4700E3EFA4 /* PipelineDescriptorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03622BFE1B4700E3EFA4 /* PipelineDescriptorLibrary.swift */; };
+		01ED03732BFE1B4700E3EFA4 /* PipelineStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03632BFE1B4700E3EFA4 /* PipelineStateLibrary.swift */; };
+		01ED03742BFE1B4700E3EFA4 /* VertexDescriptorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03642BFE1B4700E3EFA4 /* VertexDescriptorLibrary.swift */; };
+		01ED03752BFE1B4700E3EFA4 /* VertexShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03652BFE1B4700E3EFA4 /* VertexShaderLibrary.swift */; };
+		01ED03782BFE334F00E3EFA4 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03772BFE334F00E3EFA4 /* Vertex.swift */; };
+		01ED037A2BFE347B00E3EFA4 /* MetalGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03792BFE347B00E3EFA4 /* MetalGameView.swift */; };
+		01ED037D2BFE35D900E3EFA4 /* VertexShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED037C2BFE35D900E3EFA4 /* VertexShader.swift */; };
+		01ED037F2BFE35EB00E3EFA4 /* VertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED037E2BFE35EB00E3EFA4 /* VertexDescriptor.swift */; };
+		01ED03812BFE35FB00E3EFA4 /* PipelineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03802BFE35FB00E3EFA4 /* PipelineState.swift */; };
+		01ED03832BFE361100E3EFA4 /* PipelineDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03822BFE361100E3EFA4 /* PipelineDescriptor.swift */; };
+		01ED03852BFE362300E3EFA4 /* MeshType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03842BFE362300E3EFA4 /* MeshType.swift */; };
+		01ED03872BFE363400E3EFA4 /* FragmentShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03862BFE363400E3EFA4 /* FragmentShader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0155A0E62BBB1F48008AEA0B /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		0155A0ED2BBB26DC008AEA0B /* PositionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionComponent.swift; sourceTree = "<group>"; };
+		0155A0EF2BBB382C008AEA0B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		0155A0F22BBB3A61008AEA0B /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		0155A0F42BBB3A70008AEA0B /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		0155A0F62BBB3A7E008AEA0B /* GameOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOutput.swift; sourceTree = "<group>"; };
+		0155A0FA2BBB4113008AEA0B /* BodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyComponent.swift; sourceTree = "<group>"; };
+		0155A0FC2BBB4297008AEA0B /* VelocityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityComponent.swift; sourceTree = "<group>"; };
+		0155A0FE2BBB4347008AEA0B /* MovementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementSystem.swift; sourceTree = "<group>"; };
+		0155A1032BBB488A008AEA0B /* Prefab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefab.swift; sourceTree = "<group>"; };
+		019352E42BBDA0B50082A1BF /* AABB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AABB.swift; sourceTree = "<group>"; };
+		019352E62BBDA11E0082A1BF /* BVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BVH.swift; sourceTree = "<group>"; };
+		01BCBBA32BBC1B160036BD81 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedievalWarGame.swift; sourceTree = "<group>"; };
+		01BCBBA72BBC6C560036BD81 /* GameInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInput.swift; sourceTree = "<group>"; };
+		01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSystem.swift; sourceTree = "<group>"; };
+		01BCBBAD2BBC71E40036BD81 /* AppleKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleKeyboard.swift; sourceTree = "<group>"; };
+		01BCBBAF2BBC73E60036BD81 /* InputDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDevice.swift; sourceTree = "<group>"; };
+		01BEF8452BBDBEB800E81A41 /* PhysicsSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsSystem.swift; sourceTree = "<group>"; };
+		01CE7F262BB5D2F2003B73CC /* MedievalWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedievalWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01CE7F292BB5D2F2003B73CC /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
+		01CE7F2D2BB5D2F3003B73CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01CE7F302BB5D2F3003B73CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		01CE7F322BB5D2F3003B73CC /* MedievalWar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MedievalWar.entitlements; sourceTree = "<group>"; };
+		01CE7F382BB5D345003B73CC /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		01ED03562BFE1B4700E3EFA4 /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		01ED03572BFE1B4700E3EFA4 /* MetalRenderSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderSystem.swift; sourceTree = "<group>"; };
+		01ED03582BFE1B4700E3EFA4 /* FlyweightFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyweightFactory.swift; sourceTree = "<group>"; };
+		01ED03592BFE1B4700E3EFA4 /* simd+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd+Extensions.swift"; sourceTree = "<group>"; };
+		01ED035A2BFE1B4700E3EFA4 /* MetalLibraryError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalLibraryError.swift; sourceTree = "<group>"; };
+		01ED035B2BFE1B4700E3EFA4 /* MetalRenderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderManager.swift; sourceTree = "<group>"; };
+		01ED035C2BFE1B4700E3EFA4 /* MetalRenderObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderObject.swift; sourceTree = "<group>"; };
+		01ED035D2BFE1B4700E3EFA4 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		01ED03602BFE1B4700E3EFA4 /* FragmentShaderLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FragmentShaderLibrary.swift; sourceTree = "<group>"; };
+		01ED03612BFE1B4700E3EFA4 /* MeshLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeshLibrary.swift; sourceTree = "<group>"; };
+		01ED03622BFE1B4700E3EFA4 /* PipelineDescriptorLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipelineDescriptorLibrary.swift; sourceTree = "<group>"; };
+		01ED03632BFE1B4700E3EFA4 /* PipelineStateLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipelineStateLibrary.swift; sourceTree = "<group>"; };
+		01ED03642BFE1B4700E3EFA4 /* VertexDescriptorLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VertexDescriptorLibrary.swift; sourceTree = "<group>"; };
+		01ED03652BFE1B4700E3EFA4 /* VertexShaderLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VertexShaderLibrary.swift; sourceTree = "<group>"; };
+		01ED03772BFE334F00E3EFA4 /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		01ED03792BFE347B00E3EFA4 /* MetalGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalGameView.swift; sourceTree = "<group>"; };
+		01ED037C2BFE35D900E3EFA4 /* VertexShader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexShader.swift; sourceTree = "<group>"; };
+		01ED037E2BFE35EB00E3EFA4 /* VertexDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptor.swift; sourceTree = "<group>"; };
+		01ED03802BFE35FB00E3EFA4 /* PipelineState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineState.swift; sourceTree = "<group>"; };
+		01ED03822BFE361100E3EFA4 /* PipelineDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDescriptor.swift; sourceTree = "<group>"; };
+		01ED03842BFE362300E3EFA4 /* MeshType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshType.swift; sourceTree = "<group>"; };
+		01ED03862BFE363400E3EFA4 /* FragmentShader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentShader.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01CE7F232BB5D2F2003B73CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0155A0E52BBB1F3C008AEA0B /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				01CE7F292BB5D2F2003B73CC /* MainApp.swift */,
+				0155A0E62BBB1F48008AEA0B /* GameView.swift */,
+				01CE7F2D2BB5D2F3003B73CC /* Assets.xcassets */,
+				01CE7F322BB5D2F3003B73CC /* MedievalWar.entitlements */,
+				01CE7F2F2BB5D2F3003B73CC /* Preview Content */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		0155A0EA2BBB2696008AEA0B /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				01BCBBAC2BBC71C00036BD81 /* Input */,
+				01BCBBAB2BBC71BB0036BD81 /* Output */,
+				0155A0F12BBB3A58008AEA0B /* Models */,
+				0155A0EC2BBB26BC008AEA0B /* Systems */,
+				0155A0EB2BBB26B6008AEA0B /* Components */,
+				01BCBBA22BBC1B0D0036BD81 /* Utils */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		0155A0EB2BBB26B6008AEA0B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0155A0ED2BBB26DC008AEA0B /* PositionComponent.swift */,
+				0155A0FA2BBB4113008AEA0B /* BodyComponent.swift */,
+				0155A0FC2BBB4297008AEA0B /* VelocityComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0155A0EC2BBB26BC008AEA0B /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */,
+				0155A0FE2BBB4347008AEA0B /* MovementSystem.swift */,
+				01BEF8452BBDBEB800E81A41 /* PhysicsSystem.swift */,
+			);
+			path = Systems;
+			sourceTree = "<group>";
+		};
+		0155A0F12BBB3A58008AEA0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0155A0EF2BBB382C008AEA0B /* GameScene.swift */,
+				01CE7F382BB5D345003B73CC /* World.swift */,
+				0155A0F62BBB3A7E008AEA0B /* GameOutput.swift */,
+				01BCBBA72BBC6C560036BD81 /* GameInput.swift */,
+				0155A0F22BBB3A61008AEA0B /* System.swift */,
+				0155A0F42BBB3A70008AEA0B /* Component.swift */,
+				0155A1032BBB488A008AEA0B /* Prefab.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0155A1052BBB4A2D008AEA0B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		01BCBBA22BBC1B0D0036BD81 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				01ED03582BFE1B4700E3EFA4 /* FlyweightFactory.swift */,
+				01BCBBA32BBC1B160036BD81 /* Array+Extension.swift */,
+				019352E42BBDA0B50082A1BF /* AABB.swift */,
+				019352E62BBDA11E0082A1BF /* BVH.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		01BCBBAB2BBC71BB0036BD81 /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				01ED03762BFE331900E3EFA4 /* Commum */,
+				01ED03552BFE1B3B00E3EFA4 /* Metal */,
+			);
+			path = Output;
+			sourceTree = "<group>";
+		};
+		01BCBBAC2BBC71C00036BD81 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				01BCBBAF2BBC73E60036BD81 /* InputDevice.swift */,
+				01BCBBAD2BBC71E40036BD81 /* AppleKeyboard.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		01CE7F1D2BB5D2F2003B73CC = {
+			isa = PBXGroup;
+			children = (
+				01CE7F282BB5D2F2003B73CC /* MedievalWar */,
+				01CE7F272BB5D2F2003B73CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01CE7F272BB5D2F2003B73CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01CE7F262BB5D2F2003B73CC /* MedievalWar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01CE7F282BB5D2F2003B73CC /* MedievalWar */ = {
+			isa = PBXGroup;
+			children = (
+				0155A0E52BBB1F3C008AEA0B /* macOS */,
+				0155A1052BBB4A2D008AEA0B /* Game */,
+				0155A0EA2BBB2696008AEA0B /* Engine */,
+			);
+			path = MedievalWar;
+			sourceTree = "<group>";
+		};
+		01CE7F2F2BB5D2F3003B73CC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				01CE7F302BB5D2F3003B73CC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		01ED03552BFE1B3B00E3EFA4 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				01ED03792BFE347B00E3EFA4 /* MetalGameView.swift */,
+				01ED035C2BFE1B4700E3EFA4 /* MetalRenderObject.swift */,
+				01ED035B2BFE1B4700E3EFA4 /* MetalRenderManager.swift */,
+				01ED03572BFE1B4700E3EFA4 /* MetalRenderSystem.swift */,
+				01ED03562BFE1B4700E3EFA4 /* MetalView.swift */,
+				01ED035A2BFE1B4700E3EFA4 /* MetalLibraryError.swift */,
+				01ED035D2BFE1B4700E3EFA4 /* Shaders.metal */,
+				01ED03662BFE1B4700E3EFA4 /* Libraries */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		01ED03662BFE1B4700E3EFA4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				01ED03602BFE1B4700E3EFA4 /* FragmentShaderLibrary.swift */,
+				01ED03612BFE1B4700E3EFA4 /* MeshLibrary.swift */,
+				01ED03622BFE1B4700E3EFA4 /* PipelineDescriptorLibrary.swift */,
+				01ED03632BFE1B4700E3EFA4 /* PipelineStateLibrary.swift */,
+				01ED03642BFE1B4700E3EFA4 /* VertexDescriptorLibrary.swift */,
+				01ED03652BFE1B4700E3EFA4 /* VertexShaderLibrary.swift */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		01ED03762BFE331900E3EFA4 /* Commum */ = {
+			isa = PBXGroup;
+			children = (
+				01ED03772BFE334F00E3EFA4 /* Vertex.swift */,
+				01ED03592BFE1B4700E3EFA4 /* simd+Extensions.swift */,
+				01ED037C2BFE35D900E3EFA4 /* VertexShader.swift */,
+				01ED03862BFE363400E3EFA4 /* FragmentShader.swift */,
+				01ED037E2BFE35EB00E3EFA4 /* VertexDescriptor.swift */,
+				01ED03802BFE35FB00E3EFA4 /* PipelineState.swift */,
+				01ED03822BFE361100E3EFA4 /* PipelineDescriptor.swift */,
+				01ED03842BFE362300E3EFA4 /* MeshType.swift */,
+			);
+			path = Commum;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01CE7F252BB5D2F2003B73CC /* MedievalWar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01CE7F352BB5D2F3003B73CC /* Build configuration list for PBXNativeTarget "MedievalWar" */;
+			buildPhases = (
+				01CE7F222BB5D2F2003B73CC /* Sources */,
+				01CE7F232BB5D2F2003B73CC /* Frameworks */,
+				01CE7F242BB5D2F2003B73CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MedievalWar;
+			productName = MedievalWar;
+			productReference = 01CE7F262BB5D2F2003B73CC /* MedievalWar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01CE7F1E2BB5D2F2003B73CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					01CE7F252BB5D2F2003B73CC = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 01CE7F212BB5D2F2003B73CC /* Build configuration list for PBXProject "MedievalWar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01CE7F1D2BB5D2F2003B73CC;
+			productRefGroup = 01CE7F272BB5D2F2003B73CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01CE7F252BB5D2F2003B73CC /* MedievalWar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01CE7F242BB5D2F2003B73CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01CE7F312BB5D2F3003B73CC /* Preview Assets.xcassets in Resources */,
+				01CE7F2E2BB5D2F3003B73CC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01CE7F222BB5D2F2003B73CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01ED036E2BFE1B4700E3EFA4 /* Shaders.metal in Sources */,
+				019352E72BBDA11E0082A1BF /* BVH.swift in Sources */,
+				0155A0F72BBB3A7E008AEA0B /* GameOutput.swift in Sources */,
+				01BCBBAA2BBC6DCF0036BD81 /* InputSystem.swift in Sources */,
+				01ED03832BFE361100E3EFA4 /* PipelineDescriptor.swift in Sources */,
+				01ED03812BFE35FB00E3EFA4 /* PipelineState.swift in Sources */,
+				01ED03742BFE1B4700E3EFA4 /* VertexDescriptorLibrary.swift in Sources */,
+				01ED03702BFE1B4700E3EFA4 /* FragmentShaderLibrary.swift in Sources */,
+				01CE7F392BB5D345003B73CC /* World.swift in Sources */,
+				0155A0F52BBB3A70008AEA0B /* Component.swift in Sources */,
+				01ED036A2BFE1B4700E3EFA4 /* simd+Extensions.swift in Sources */,
+				01ED036C2BFE1B4700E3EFA4 /* MetalRenderManager.swift in Sources */,
+				01ED037D2BFE35D900E3EFA4 /* VertexShader.swift in Sources */,
+				0155A1042BBB488A008AEA0B /* Prefab.swift in Sources */,
+				0155A0F02BBB382C008AEA0B /* GameScene.swift in Sources */,
+				0155A0FF2BBB4347008AEA0B /* MovementSystem.swift in Sources */,
+				019352E52BBDA0B50082A1BF /* AABB.swift in Sources */,
+				01ED03712BFE1B4700E3EFA4 /* MeshLibrary.swift in Sources */,
+				01ED036D2BFE1B4700E3EFA4 /* MetalRenderObject.swift in Sources */,
+				0155A0FD2BBB4297008AEA0B /* VelocityComponent.swift in Sources */,
+				01BCBBAE2BBC71E40036BD81 /* AppleKeyboard.swift in Sources */,
+				01ED03722BFE1B4700E3EFA4 /* PipelineDescriptorLibrary.swift in Sources */,
+				0155A0E72BBB1F48008AEA0B /* GameView.swift in Sources */,
+				01ED03872BFE363400E3EFA4 /* FragmentShader.swift in Sources */,
+				01BCBBA82BBC6C560036BD81 /* GameInput.swift in Sources */,
+				0155A0FB2BBB4113008AEA0B /* BodyComponent.swift in Sources */,
+				01BCBBB02BBC73E60036BD81 /* InputDevice.swift in Sources */,
+				01ED037A2BFE347B00E3EFA4 /* MetalGameView.swift in Sources */,
+				0155A0EE2BBB26DC008AEA0B /* PositionComponent.swift in Sources */,
+				0155A0F32BBB3A61008AEA0B /* System.swift in Sources */,
+				01ED03682BFE1B4700E3EFA4 /* MetalRenderSystem.swift in Sources */,
+				01BCBBA42BBC1B160036BD81 /* Array+Extension.swift in Sources */,
+				01ED03672BFE1B4700E3EFA4 /* MetalView.swift in Sources */,
+				01ED037F2BFE35EB00E3EFA4 /* VertexDescriptor.swift in Sources */,
+				01ED03692BFE1B4700E3EFA4 /* FlyweightFactory.swift in Sources */,
+				01ED03782BFE334F00E3EFA4 /* Vertex.swift in Sources */,
+				01ED03752BFE1B4700E3EFA4 /* VertexShaderLibrary.swift in Sources */,
+				01BEF8462BBDBEB800E81A41 /* PhysicsSystem.swift in Sources */,
+				01CE7F2A2BB5D2F2003B73CC /* MainApp.swift in Sources */,
+				01ED036B2BFE1B4700E3EFA4 /* MetalLibraryError.swift in Sources */,
+				01BCBBA62BBC1DC00036BD81 /* MedievalWarGame.swift in Sources */,
+				01ED03852BFE362300E3EFA4 /* MeshType.swift in Sources */,
+				01ED03732BFE1B4700E3EFA4 /* PipelineStateLibrary.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		01CE7F332BB5D2F3003B73CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		01CE7F342BB5D2F3003B73CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		01CE7F362BB5D2F3003B73CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MedievalWar/macOS/MedievalWar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MedievalWar/macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 4FV3MXV8J6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.geovanacontine.MedievalWar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		01CE7F372BB5D2F3003B73CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MedievalWar/macOS/MedievalWar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MedievalWar/macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 4FV3MXV8J6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.geovanacontine.MedievalWar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01CE7F212BB5D2F2003B73CC /* Build configuration list for PBXProject "MedievalWar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01CE7F332BB5D2F3003B73CC /* Debug */,
+				01CE7F342BB5D2F3003B73CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01CE7F352BB5D2F3003B73CC /* Build configuration list for PBXNativeTarget "MedievalWar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01CE7F362BB5D2F3003B73CC /* Debug */,
+				01CE7F372BB5D2F3003B73CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01CE7F1E2BB5D2F2003B73CC /* Project object */;
+}
