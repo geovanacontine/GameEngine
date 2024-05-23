@@ -1,12 +1,15 @@
 import Foundation
 
 struct InputSystem: System {
-    func update(world: inout World, input: inout GameInput?, deltaTime: TimeInterval) {
+    
+    let inputManager = InputManager.shared
+    
+    func update(world: inout World, deltaTime: TimeInterval) {
         
-        guard let input else { return }
+        guard let inputDevice = inputManager.device else { return }
         
-        let xAxis = input.xAxis
-        let yAxis = input.yAxis
+        let xAxis = inputDevice.xAxis
+        let yAxis = inputDevice.yAxis
         
         // Normalize inputs
         let inputMagnitude = sqrt((xAxis * xAxis) + (yAxis * yAxis))

@@ -3,16 +3,16 @@ import MetalKit
 
 struct MetalView: NSViewRepresentable {
     
-    let renderSystem: MetalRenderSystem
+    let render: AppleRender
     
     func makeNSView(context: Context) -> MTKView {
         let view = MTKView()
         
-        view.delegate = renderSystem
-        view.device = renderSystem.manager.device
+        view.delegate = render
+        view.device = render.manager.device
         view.drawableSize = view.frame.size
         view.isPaused = false
-        view.colorPixelFormat = renderSystem.manager.pixelFormat
+        view.colorPixelFormat = render.manager.pixelFormat
         
         return view
     }

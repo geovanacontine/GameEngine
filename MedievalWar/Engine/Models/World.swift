@@ -7,21 +7,23 @@ struct World {
     var mapHeight: Double
     
     // Components
-    var positionList: [PositionComponent?] = []
+    var transformList: [TransformComponent?] = []
+    var meshList: [MeshComponent?] = []
     var bodyList: [BodyComponent?] = []
     var velocityList: [VelocityComponent?] = []
-    
 }
 
 extension World {
     mutating func spawn(_ prefab: Prefab) {
-        positionList.append(prefab.position)
+        transformList.append(prefab.transform)
+        meshList.append(prefab.mesh)
         bodyList.append(prefab.body)
         velocityList.append(prefab.velocity)
     }
     
     mutating func destroy(id: Int) {
-        positionList.remove(at: id)
+        transformList.remove(at: id)
+        meshList.remove(at: id)
         bodyList.remove(at: id)
         velocityList.remove(at: id)
     }

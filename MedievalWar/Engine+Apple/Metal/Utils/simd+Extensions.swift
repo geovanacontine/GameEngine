@@ -16,3 +16,5 @@ extension Sizable {
 }
 
 extension simd_float3: Sizable {}
+extension simd_float1: Sizable {}
+extension matrix_float4x4: Sizable {}

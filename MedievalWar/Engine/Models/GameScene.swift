@@ -2,12 +2,8 @@ import Foundation
 
 class GameScene {
     
-    // Protocols
-    var output: GameOutput?
-    private var input: GameInput?
-    
     // Settings
-    private var frameRate: Double
+    private var frameRate: Double = 60
     
     // Timers
     private var timer: Timer?
@@ -22,7 +18,6 @@ class GameScene {
     private(set) var isRunning = false
     
     init() {
-        frameRate = 60
         startTime = Date().timeIntervalSince1970
         lastUpdate = Date().timeIntervalSince1970
         world = World(mapWidth: 640, mapHeight: 480)
@@ -41,10 +36,6 @@ class GameScene {
 // MARK: - Setup Methods
 
 extension GameScene {
-    func setupInput(device: InputDevice) {
-        input = device.gameInput
-    }
-    
     func setupFramesPerSecond(_ frameRate: Int) {
         self.frameRate = Double(frameRate)
     }
@@ -99,10 +90,7 @@ private extension GameScene {
         
         // Update Systems
         for system in systems {
-            system.update(world: &world, input: &input, deltaTime: deltaTime)
+            system.update(world: &world, deltaTime: deltaTime)
         }
-        
-        // Render
-        output?.draw(world: world)
     }
 }

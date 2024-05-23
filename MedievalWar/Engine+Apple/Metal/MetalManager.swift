@@ -1,6 +1,6 @@
 import MetalKit
 
-struct MetalRenderManager {
+struct MetalManager {
     
     let pixelFormat: MTLPixelFormat
     let device: MTLDevice

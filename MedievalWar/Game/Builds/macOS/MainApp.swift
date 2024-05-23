@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MainApp: App {
+    
+    let scene = MedievalWarGame()
+    
     var body: some Scene {
         WindowGroup {
-            GameView()
+            AppleGameView()
         }
     }
 }

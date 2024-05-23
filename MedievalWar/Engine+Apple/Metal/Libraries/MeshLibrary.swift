@@ -11,6 +11,7 @@ class MeshLibrary: FlyweightFactory<Mesh, MeshType> {
     override func makeObject(ofType objectType: MeshType) throws -> Mesh {
         switch objectType {
         case .triangle: try triangleMesh()
+        case .quad: try quadMesh()
         }
     }
     
@@ -18,6 +19,20 @@ class MeshLibrary: FlyweightFactory<Mesh, MeshType> {
         let vertices: [Vertex] = [
             .init(position: .init(x: 0, y: 1, z: 0), color: .init(x: 1, y: 0, z: 0, w: 1)),
             .init(position: .init(x: -1, y: -1, z: 0), color: .init(x: 0, y: 1, z: 0, w: 1)),
+            .init(position: .init(x: 1, y: -1, z: 0), color: .init(x: 0, y: 0, z: 1, w: 1))
+        ]
+        
+        return try Mesh(device: device, vertices: vertices)
+    }
+    
+    private func quadMesh() throws -> Mesh {
+        let vertices: [Vertex] = [
+            .init(position: .init(x: -1, y: 1, z: 0), color: .init(x: 1, y: 0, z: 0, w: 1)),
+            .init(position: .init(x: -1, y: -1, z: 0), color: .init(x: 0, y: 1, z: 0, w: 1)),
+            .init(position: .init(x: 1, y: -1, z: 0), color: .init(x: 0, y: 0, z: 1, w: 1)),
+            
+            .init(position: .init(x: -1, y: 1, z: 0), color: .init(x: 1, y: 0, z: 0, w: 1)),
+            .init(position: .init(x: 1, y: 1, z: 0), color: .init(x: 1, y: 0, z: 1, w: 1)),
             .init(position: .init(x: 1, y: -1, z: 0), color: .init(x: 0, y: 0, z: 1, w: 1))
         ]
         

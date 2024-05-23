@@ -1,7 +1,8 @@
 import Foundation
 
 struct Prefab {
-    let position: PositionComponent?
+    let transform: TransformComponent?
+    let mesh: MeshComponent?
     let body: BodyComponent?
     let velocity: VelocityComponent?
 }

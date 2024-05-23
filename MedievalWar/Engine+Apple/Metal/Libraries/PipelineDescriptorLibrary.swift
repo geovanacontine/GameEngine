@@ -34,6 +34,7 @@ class PipelineDescriptorLibrary: FlyweightFactory<MTLRenderPipelineDescriptor, P
         
         let vertexDescriptor = try vertexDescriptor.object(ofType: .basic)
         pipelineDescriptor.vertexDescriptor = vertexDescriptor
+        
         return pipelineDescriptor
     }
 }
