@@ -1,6 +1,6 @@
 import Foundation
 
-struct BodyComponent: Component {
+struct Body: Component {
     var width: Double
     var height: Double
 }

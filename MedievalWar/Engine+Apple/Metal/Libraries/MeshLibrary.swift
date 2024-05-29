@@ -1,6 +1,6 @@
 import MetalKit
 
-class MeshLibrary: FlyweightFactory<Mesh, MeshType> {
+class MeshLibrary: FlyweightFactory<MTLMesh, MeshType> {
     
     private let device: MTLDevice
     
@@ -8,24 +8,24 @@ class MeshLibrary: FlyweightFactory<Mesh, MeshType> {
         self.device = device
     }
     
-    override func makeObject(ofType objectType: MeshType) throws -> Mesh {
+    override func makeObject(ofType objectType: MeshType) throws -> MTLMesh {
         switch objectType {
         case .triangle: try triangleMesh()
         case .quad: try quadMesh()
         }
     }
     
-    private func triangleMesh() throws -> Mesh {
+    private func triangleMesh() throws -> MTLMesh {
         let vertices: [Vertex] = [
             .init(position: .init(x: 0, y: 1, z: 0), color: .init(x: 1, y: 0, z: 0, w: 1)),
             .init(position: .init(x: -1, y: -1, z: 0), color: .init(x: 0, y: 1, z: 0, w: 1)),
             .init(position: .init(x: 1, y: -1, z: 0), color: .init(x: 0, y: 0, z: 1, w: 1))
         ]
         
-        return try Mesh(device: device, vertices: vertices)
+        return try MTLMesh(device: device, vertices: vertices)
     }
     
-    private func quadMesh() throws -> Mesh {
+    private func quadMesh() throws -> MTLMesh {
         let vertices: [Vertex] = [
             .init(position: .init(x: -1, y: 1, z: 0), color: .init(x: 1, y: 0, z: 0, w: 1)),
             .init(position: .init(x: -1, y: -1, z: 0), color: .init(x: 0, y: 1, z: 0, w: 1)),
@@ -36,11 +36,11 @@ class MeshLibrary: FlyweightFactory<Mesh, MeshType> {
             .init(position: .init(x: 1, y: -1, z: 0), color: .init(x: 0, y: 0, z: 1, w: 1))
         ]
         
-        return try Mesh(device: device, vertices: vertices)
+        return try MTLMesh(device: device, vertices: vertices)
     }
 }
 
-struct Mesh {
+struct MTLMesh {
     
     let vertexBuffer: MTLBuffer
     let verticesCount: Int

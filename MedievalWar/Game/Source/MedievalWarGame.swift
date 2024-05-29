@@ -9,30 +9,33 @@ import Foundation
 
 class MedievalWarGame: GameScene {
     
-    override func onSetup() {
-        setupFramesPerSecond(60)
-        setupMap(width: 1000, height: 1000)
-        
-        setupSystems(
+    let manager = GameManager.shared
+    
+    override func componentsToRegister() -> [Component.Type] {
+        [
+            Velocity.self,
+            Mesh.self,
+            Position.self,
+            Rotation.self,
+            Scale.self
+        ]
+    }
+    
+    override func systemsToRegister() -> [System] {
+        [
             InputSystem(),
             MovementSystem(),
             RenderSystem()
-        )
+        ]
     }
     
-    override func onBegin() {
+    override func onStart() {
+        let velocity = Velocity(maxSpeed: 1, x: 0, y: 0)
+        let mesh = Mesh(pipelineState: .basic, meshType: .quad)
+        let position = Position(x: 0, y: 0, z: 0)
         
-        let warrior = Prefab(
-            transform: .init(
-                position: .init(x: 0, y: 0, z: 0),
-                rotation: .init(x: 0, y: 0, z: 0),
-                scale: .init(x: 1, y: 1, z: 1)
-            ), 
-            mesh: .init(pipelineState: .basic, meshType: .quad),
-            body: .init(width: 60, height: 60),
-            velocity: .init(maxSpeed: 1, x: 0, y: 0)
-        )
+        _ = manager.entities.spawn(withComponents: [velocity, mesh, position])
         
-        spawn(prefab: warrior)
+        _ = manager.entities.spawn(withComponents: [velocity, Mesh(pipelineState: .basic, meshType: .triangle), position])
     }
 }

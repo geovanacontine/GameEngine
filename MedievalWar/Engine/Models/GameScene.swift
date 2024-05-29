@@ -2,95 +2,51 @@ import Foundation
 
 class GameScene {
     
-    // Settings
-    private var frameRate: Double = 60
+    private let manager = GameManager.shared
     
     // Timers
     private var timer: Timer?
-    private var startTime: TimeInterval
     private var lastUpdate: TimeInterval
     
-    // Private variables
-    private var world: World
-    private var systems: [System]
-    
-    // State
-    private(set) var isRunning = false
-    
     init() {
-        startTime = Date().timeIntervalSince1970
         lastUpdate = Date().timeIntervalSince1970
-        world = World(mapWidth: 640, mapHeight: 480)
-        systems = []
-        
-        onSetup()
-        onBegin()
-        resume()
+        setup()
+        onStart()
     }
     
-    // Overrides
-    func onSetup() { print(#function) }
-    func onBegin() { print(#function) }
+    // Life Cicle
+    func componentsToRegister() -> [Component.Type] { [] }
+    func systemsToRegister() -> [System] { [] }
+    func onStart() { print(#function) }
 }
 
-// MARK: - Setup Methods
+// MARK: - Private methods
 
-extension GameScene {
-    func setupFramesPerSecond(_ frameRate: Int) {
-        self.frameRate = Double(frameRate)
-    }
-    
-    func setupSystems(_ systems: System...) {
-        self.systems = systems
-    }
-    
-    func setupMap(width: Double, height: Double) {
-        world.mapWidth = height
-        world.mapHeight = height
-    }
-}
-
-// MARK: - Actions
-
-extension GameScene {
-    func spawn(prefab: Prefab) {
-        world.spawn(prefab)
-    }
-    
-    func destroy(id: Int) {
-        world.destroy(id: id)
-    }
-    
-    func resume() {
-        isRunning = true
+private extension GameScene {
+    private func setup() {
+        let components = componentsToRegister()
+        let systems = systemsToRegister()
+        manager.components.register(components)
+        manager.systems.register(systems)
         setupMainLoop()
     }
     
-    func pause() {
-        isRunning = false
-        timer?.invalidate()
-    }
-}
-
-// MARK: - Main Loop
-
-private extension GameScene {
     func setupMainLoop() {
+        let frameRate = manager.settings.desiredFrameRate
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1/frameRate, repeats: true) { [weak self] timer in
             self?.update()
         }
     }
     
     func update() {
+        guard !manager.settings.isPaused else { return }
         
         // Update deltaTime
         let now = Date().timeIntervalSince1970
         let deltaTime = now - lastUpdate
         lastUpdate = now
         
-        // Update Systems
-        for system in systems {
-            system.update(world: &world, deltaTime: deltaTime)
-        }
+        manager.systems.runSystems(deltaTime: deltaTime)
     }
 }

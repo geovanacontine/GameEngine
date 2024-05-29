@@ -2,8 +2,8 @@ import AppKit
 
 class AppleKeyboard: InputDevice {
     
-    var xAxis: Float = 0
-    var yAxis: Float = 0
+    var xAxis: Double = 0
+    var yAxis: Double = 0
     
     init() {
         setupListeners()

@@ -1,33 +1,18 @@
 import Foundation
 
 struct MovementSystem: System {
-    func update(world: inout World, deltaTime: TimeInterval) {
-        for index in world.velocityList.allElements {
+    
+    func update(deltaTime: TimeInterval) {
+        manager.components.fetch(Position.self, Velocity.self) { position, velocity in
             
-            // Requirements
-            guard let velocity = world.velocityList[index] else { continue }
-            guard let transform = world.transformList[index] else { continue }
-//            guard let body = world.bodyList[index] else { continue }
+            guard let vel = velocity else { return }
+            guard let pos = position else { return }
             
-            let nextX = transform.position.x + velocity.x * Float(deltaTime)
-            let nextY = transform.position.y - velocity.y * Float(deltaTime)
+            let nextX = pos.x + vel.x * deltaTime
+            let nextY = pos.y - vel.y * deltaTime
             
-//            let validXRange = 0...(world.mapWidth - body.width)
-//            let validYRange = 0...(world.mapHeight - body.height)
-            
-//            let validXRange = 0...(world.mapWidth)
-//            let validYRange = 0...(world.mapHeight)
-//            Float
-//            if validXRange.contains(nextX) {
-//                world.positionList[index]?.x = nextX
-//            }
-//            
-//            if validYRange.contains(nextY) {
-//                world.positionList[index]?.y = nextY
-//            }
-            
-            world.transformList[index]?.position.x = nextX
-            world.transformList[index]?.position.y = nextY
+            position?.x = nextX
+            position?.y = nextY
         }
     }
 }

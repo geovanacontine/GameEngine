@@ -1,17 +1,23 @@
 import Foundation
 
 struct RenderSystem: System {
-    
-    let outputManager = OutputManager.shared
-    
-    func update(world: inout World, deltaTime: TimeInterval) {
+    func update(deltaTime: TimeInterval) {
         
-        let nodes: [RenderNode] = world.meshList.enumerated().compactMap { index, mesh in
-            guard let mesh else { return nil }
-            guard let transform = world.transformList[index] else { return nil }
-            return RenderNode(mesh: mesh, transform: transform)
+        var nodes: [RenderNode] = []
+        
+        manager.components.fetch(Mesh.self, Position.self, Rotation.self, Scale.self) { mesh, position, rotation, scale in
+            guard let mesh, let position, let rotation, let scale else { return }
+            
+            let node = RenderNode(
+                mesh: mesh,
+                position: position,
+                rotation: rotation,
+                scale: scale
+            )
+            
+            nodes.append(node)
         }
         
-        outputManager.render?.draw(nodes: nodes)
+        manager.output.render?.draw(nodes: nodes)
     }
 }

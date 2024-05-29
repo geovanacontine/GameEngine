@@ -1,6 +1,6 @@
 import Foundation
 
-struct MeshComponent: Component {
+struct Mesh: Component {
     var pipelineState: PipelineState
     var meshType: MeshType
 }

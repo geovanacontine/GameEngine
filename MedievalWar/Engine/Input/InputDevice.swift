@@ -1,6 +1,6 @@
 import Foundation
 
 protocol InputDevice {
-    var xAxis: Float { get set }
-    var yAxis: Float { get set }
+    var xAxis: Double { get set }
+    var yAxis: Double { get set }
 }

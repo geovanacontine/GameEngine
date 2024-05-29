@@ -1,5 +1,10 @@
 import Foundation
 
 protocol System {
-    func update(world: inout World, deltaTime: TimeInterval)
+    var manager: GameManager { get }
+    func update(deltaTime: TimeInterval)
+}
+
+extension System {
+    var manager: GameManager { GameManager.shared }
 }

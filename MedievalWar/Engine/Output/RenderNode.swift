@@ -2,19 +2,20 @@ import simd
 
 struct RenderNode {
     
-    let mesh: MeshComponent
+    let mesh: Mesh
     
     // Calculated
     var modelMatrix: matrix_float4x4
     
     init(
-        mesh: MeshComponent,
-        transform: TransformComponent
+        mesh: Mesh,
+        position: Position,
+        rotation: Rotation,
+        scale: Scale
     ) {
         self.mesh = mesh
         
-        let position = transform.position
-        let simdPosition = simd_float3(x: position.x, y: position.y, z: position.z)
+        let simdPosition = simd_float3(x: Float(position.x), y: Float(position.y), z: Float(position.z))
         modelMatrix = matrix_identity_float4x4.translated(to: simdPosition)
     }
 }

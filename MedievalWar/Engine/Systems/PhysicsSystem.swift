@@ -1,7 +1,7 @@
 import Foundation
 
 struct PhysicsSystem: System {
-    func update(world: inout World, deltaTime: TimeInterval) {
+    func update(deltaTime: TimeInterval) {
         
 //        let entities: [BVHEntity] = world.bodyList.enumerated().compactMap { index, body in
 //            guard let body else { return nil }

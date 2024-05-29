@@ -1,12 +1,9 @@
 import Foundation
 
-struct InputSystem: System {
-    
-    let inputManager = InputManager.shared
-    
-    func update(world: inout World, deltaTime: TimeInterval) {
+class InputSystem: System {
+    func update(deltaTime: TimeInterval) {
         
-        guard let inputDevice = inputManager.device else { return }
+        guard let inputDevice = manager.input.device else { return }
         
         let xAxis = inputDevice.xAxis
         let yAxis = inputDevice.yAxis
@@ -16,18 +13,17 @@ struct InputSystem: System {
         let normalizedX = xAxis / inputMagnitude
         let normalizedY = yAxis / inputMagnitude
         
-        for index in world.velocityList.allElements {
+        manager.components.fetch(Velocity.self) { velocity in
             
-            // Requirements
-            guard let velocity = world.velocityList[index] else { continue }
+            guard let vel = velocity else { return }
             
             // Handle diagonal movements
             if abs(xAxis) == abs(yAxis), xAxis != 0 {
-                world.velocityList[index]?.x = normalizedX * velocity.maxSpeed
-                world.velocityList[index]?.y = normalizedY * velocity.maxSpeed
+                velocity?.x = normalizedX * vel.maxSpeed
+                velocity?.y = normalizedY * vel.maxSpeed
             } else {
-                world.velocityList[index]?.x = xAxis * velocity.maxSpeed
-                world.velocityList[index]?.y = yAxis * velocity.maxSpeed
+                velocity?.x = xAxis * vel.maxSpeed
+                velocity?.y = yAxis * vel.maxSpeed
             }
         }
     }

@@ -2,12 +2,13 @@ import SwiftUI
 
 struct AppleGameView: View {
     
+    let manager = GameManager.shared
     let inputDevice = AppleKeyboard()
     let render = AppleRender()
     
     init() {
-        InputManager.shared.connect(device: inputDevice)
-        OutputManager.shared.setup(render: render)
+        manager.input.connect(device: inputDevice)
+        manager.output.setup(render: render)
     }
     
     var body: some View {
