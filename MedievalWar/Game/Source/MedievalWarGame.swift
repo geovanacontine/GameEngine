@@ -9,18 +9,6 @@ import Foundation
 
 class MedievalWarGame: GameScene {
     
-    let manager = GameManager.shared
-    
-    override func componentsToRegister() -> [Component.Type] {
-        [
-            Velocity.self,
-            Mesh.self,
-            Position.self,
-            Rotation.self,
-            Scale.self
-        ]
-    }
-    
     override func systemsToRegister() -> [System] {
         [
             InputSystem(),
@@ -30,12 +18,30 @@ class MedievalWarGame: GameScene {
     }
     
     override func onStart() {
-        let velocity = Velocity(maxSpeed: 1, x: 0, y: 0)
-        let mesh = Mesh(pipelineState: .basic, meshType: .quad)
-        let position = Position(x: 0, y: 0, z: 0)
         
-        _ = manager.entities.spawn(withComponents: [velocity, mesh, position])
+        let moveArchetype = Archetype(componentTypes: [Velocity.self, Mesh.self, Position.self, Rotation.self, Scale.self])
+        world.register(archetype: moveArchetype, withId: "Move")
         
-        _ = manager.entities.spawn(withComponents: [velocity, Mesh(pipelineState: .basic, meshType: .triangle), position])
+        
+        for i in 0..<1000 {
+            world.spawn(archetype: "Move", components: [
+                Velocity(maxSpeed: 1.01 * Double(i), x: 0, y: 0),
+                Mesh(pipelineState: .basic, meshType: .triangle),
+                Position(x: 0, y: 0, z: 0),
+                Rotation(x: 0, y: 0, z: 0),
+                Scale(x: 1, y: 1, z: 1)
+            ])
+        }
+        
+//        for _ in 0..<9000 {
+//            world.spawn(
+//                archetype: BackgroundArchetype(
+//                    mesh: .init(pipelineState: .basic, meshType: .triangle),
+//                    position: .init(x: 0, y: 0, z: 0),
+//                    rotation: .init(x: 0, y: 0, z: 0),
+//                    scale: .init(x: 1, y: 1, z: 1)
+//                )
+//            )
+//        }
     }
 }

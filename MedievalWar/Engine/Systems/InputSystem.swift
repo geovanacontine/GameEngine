@@ -1,6 +1,7 @@
 import Foundation
 
-class InputSystem: System {
+struct InputSystem: System {
+    
     func update(deltaTime: TimeInterval) {
         
         guard let inputDevice = manager.input.device else { return }
@@ -13,17 +14,16 @@ class InputSystem: System {
         let normalizedX = xAxis / inputMagnitude
         let normalizedY = yAxis / inputMagnitude
         
-        manager.components.fetch(Velocity.self) { velocity in
-            
-            guard let vel = velocity else { return }
-            
-            // Handle diagonal movements
-            if abs(xAxis) == abs(yAxis), xAxis != 0 {
-                velocity?.x = normalizedX * vel.maxSpeed
-                velocity?.y = normalizedY * vel.maxSpeed
-            } else {
-                velocity?.x = xAxis * vel.maxSpeed
-                velocity?.y = yAxis * vel.maxSpeed
+        c.get(id: "Move") { arch in
+            arch.forEach(Velocity.self) { velocity in
+                // Handle diagonal movements
+                if abs(xAxis) == abs(yAxis), xAxis != 0 {
+                    velocity.x = normalizedX * velocity.maxSpeed
+                    velocity.y = normalizedY * velocity.maxSpeed
+                } else {
+                    velocity.x = xAxis * velocity.maxSpeed
+                    velocity.y = yAxis * velocity.maxSpeed
+                }
             }
         }
     }

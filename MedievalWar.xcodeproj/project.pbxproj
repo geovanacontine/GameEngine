@@ -16,7 +16,6 @@
 		012F5C4F2BFFB9E200184463 /* OutputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012F5C4E2BFFB9E200184463 /* OutputRender.swift */; };
 		012F5C542BFFC0E900184463 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012F5C532BFFC0E900184463 /* MetalView.swift */; };
 		012F5C562BFFC41400184463 /* RenderSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012F5C552BFFC41400184463 /* RenderSystem.swift */; };
-		014BD2422C0793B200B1663B /* ComponentManager+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BD2412C0793B200B1663B /* ComponentManager+Fetch.swift */; };
 		014BD2442C0798E900B1663B /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BD2432C0798E900B1663B /* Scale.swift */; };
 		014BD2462C0798F400B1663B /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BD2452C0798F400B1663B /* Rotation.swift */; };
 		0155A0E72BBB1F48008AEA0B /* AppleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0E62BBB1F48008AEA0B /* AppleGameView.swift */; };
@@ -32,7 +31,10 @@
 		019806172C063DE4005BB011 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019806162C063DE4005BB011 /* GameManager.swift */; };
 		019806192C064020005BB011 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019806182C064020005BB011 /* GameSettings.swift */; };
 		0198061B2C0645C7005BB011 /* SystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198061A2C0645C7005BB011 /* SystemManager.swift */; };
-		01BBAD552C065CC000843CE7 /* ComponentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BBAD542C065CC000843CE7 /* ComponentManager.swift */; };
+		01B391F42C0E0E3B000E8F29 /* Archetype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B391F32C0E0E3B000E8F29 /* Archetype.swift */; };
+		01BA77202C0F7AAE00676979 /* EngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA771F2C0F7AAE00676979 /* EngineTests.swift */; };
+		01BA77272C0F7DDB00676979 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA77262C0F7DDB00676979 /* Entity.swift */; };
+		01BA77292C0F8A4100676979 /* ArchetypeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA77282C0F8A4100676979 /* ArchetypeEntity.swift */; };
 		01BCBBA42BBC1B160036BD81 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA32BBC1B160036BD81 /* Array+Extension.swift */; };
 		01BCBBA62BBC1DC00036BD81 /* MedievalWarGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */; };
 		01BCBBAA2BBC6DCF0036BD81 /* InputSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */; };
@@ -41,7 +43,7 @@
 		01CE7F2A2BB5D2F2003B73CC /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE7F292BB5D2F2003B73CC /* MainApp.swift */; };
 		01CE7F2E2BB5D2F3003B73CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CE7F2D2BB5D2F3003B73CC /* Assets.xcassets */; };
 		01CE7F312BB5D2F3003B73CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CE7F302BB5D2F3003B73CC /* Preview Assets.xcassets */; };
-		01CE7F392BB5D345003B73CC /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE7F382BB5D345003B73CC /* EntityManager.swift */; };
+		01CE7F392BB5D345003B73CC /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE7F382BB5D345003B73CC /* World.swift */; };
 		01ED03682BFE1B4700E3EFA4 /* AppleRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03572BFE1B4700E3EFA4 /* AppleRender.swift */; };
 		01ED03692BFE1B4700E3EFA4 /* FlyweightFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03582BFE1B4700E3EFA4 /* FlyweightFactory.swift */; };
 		01ED036A2BFE1B4700E3EFA4 /* simd+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03592BFE1B4700E3EFA4 /* simd+Extensions.swift */; };
@@ -64,6 +66,16 @@
 		01ED03872BFE363400E3EFA4 /* FragmentShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED03862BFE363400E3EFA4 /* FragmentShader.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		01BA77212C0F7AAE00676979 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01CE7F1E2BB5D2F2003B73CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01CE7F252BB5D2F2003B73CC;
+			remoteInfo = MedievalWar;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		012F5C3A2BFF6E4100184463 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		012F5C3C2BFF6E7D00184463 /* Float3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float3.swift; sourceTree = "<group>"; };
@@ -74,7 +86,6 @@
 		012F5C4E2BFFB9E200184463 /* OutputRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputRender.swift; sourceTree = "<group>"; };
 		012F5C532BFFC0E900184463 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		012F5C552BFFC41400184463 /* RenderSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderSystem.swift; sourceTree = "<group>"; };
-		014BD2412C0793B200B1663B /* ComponentManager+Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ComponentManager+Fetch.swift"; sourceTree = "<group>"; };
 		014BD2432C0798E900B1663B /* Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		014BD2452C0798F400B1663B /* Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 		0155A0E62BBB1F48008AEA0B /* AppleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleGameView.swift; sourceTree = "<group>"; };
@@ -90,7 +101,11 @@
 		019806162C063DE4005BB011 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		019806182C064020005BB011 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		0198061A2C0645C7005BB011 /* SystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemManager.swift; sourceTree = "<group>"; };
-		01BBAD542C065CC000843CE7 /* ComponentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentManager.swift; sourceTree = "<group>"; };
+		01B391F32C0E0E3B000E8F29 /* Archetype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archetype.swift; sourceTree = "<group>"; };
+		01BA771D2C0F7AAE00676979 /* EngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01BA771F2C0F7AAE00676979 /* EngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineTests.swift; sourceTree = "<group>"; };
+		01BA77262C0F7DDB00676979 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		01BA77282C0F8A4100676979 /* ArchetypeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchetypeEntity.swift; sourceTree = "<group>"; };
 		01BCBBA32BBC1B160036BD81 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedievalWarGame.swift; sourceTree = "<group>"; };
 		01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSystem.swift; sourceTree = "<group>"; };
@@ -101,7 +116,7 @@
 		01CE7F2D2BB5D2F3003B73CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01CE7F302BB5D2F3003B73CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		01CE7F322BB5D2F3003B73CC /* MedievalWar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MedievalWar.entitlements; sourceTree = "<group>"; };
-		01CE7F382BB5D345003B73CC /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		01CE7F382BB5D345003B73CC /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		01ED03572BFE1B4700E3EFA4 /* AppleRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleRender.swift; sourceTree = "<group>"; };
 		01ED03582BFE1B4700E3EFA4 /* FlyweightFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyweightFactory.swift; sourceTree = "<group>"; };
 		01ED03592BFE1B4700E3EFA4 /* simd+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd+Extensions.swift"; sourceTree = "<group>"; };
@@ -125,6 +140,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		01BA771A2C0F7AAE00676979 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01CE7F232BB5D2F2003B73CC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,8 +224,8 @@
 				01BCBBAC2BBC71C00036BD81 /* Input */,
 				01BCBBAB2BBC71BB0036BD81 /* Output */,
 				01BBAD562C065E0500843CE7 /* Managers */,
-				0155A0F12BBB3A58008AEA0B /* Models */,
 				0155A0EC2BBB26BC008AEA0B /* Systems */,
+				01B391EE2C0E0CF1000E8F29 /* Archetypes */,
 				0155A0EB2BBB26B6008AEA0B /* Components */,
 				01BCBBA22BBC1B0D0036BD81 /* Utils */,
 			);
@@ -213,6 +235,7 @@
 		0155A0EB2BBB26B6008AEA0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0155A0F42BBB3A70008AEA0B /* Component.swift */,
 				0155A0FA2BBB4113008AEA0B /* Body.swift */,
 				0155A0FC2BBB4297008AEA0B /* Velocity.swift */,
 				012F5C3A2BFF6E4100184463 /* Position.swift */,
@@ -226,23 +249,13 @@
 		0155A0EC2BBB26BC008AEA0B /* Systems */ = {
 			isa = PBXGroup;
 			children = (
+				0155A0F22BBB3A61008AEA0B /* System.swift */,
 				01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */,
 				0155A0FE2BBB4347008AEA0B /* MovementSystem.swift */,
 				01BEF8452BBDBEB800E81A41 /* PhysicsSystem.swift */,
 				012F5C552BFFC41400184463 /* RenderSystem.swift */,
 			);
 			path = Systems;
-			sourceTree = "<group>";
-		};
-		0155A0F12BBB3A58008AEA0B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0155A0EF2BBB382C008AEA0B /* GameScene.swift */,
-				0155A0F22BBB3A61008AEA0B /* System.swift */,
-				0155A0F42BBB3A70008AEA0B /* Component.swift */,
-				019806182C064020005BB011 /* GameSettings.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		0155A1052BBB4A2D008AEA0B /* Game */ = {
@@ -254,14 +267,32 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		01B391EE2C0E0CF1000E8F29 /* Archetypes */ = {
+			isa = PBXGroup;
+			children = (
+				01B391F32C0E0E3B000E8F29 /* Archetype.swift */,
+				01BA77282C0F8A4100676979 /* ArchetypeEntity.swift */,
+				01BA77262C0F7DDB00676979 /* Entity.swift */,
+			);
+			path = Archetypes;
+			sourceTree = "<group>";
+		};
+		01BA771E2C0F7AAE00676979 /* EngineTests */ = {
+			isa = PBXGroup;
+			children = (
+				01BA771F2C0F7AAE00676979 /* EngineTests.swift */,
+			);
+			path = EngineTests;
+			sourceTree = "<group>";
+		};
 		01BBAD562C065E0500843CE7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				01BBAD542C065CC000843CE7 /* ComponentManager.swift */,
-				014BD2412C0793B200B1663B /* ComponentManager+Fetch.swift */,
-				01CE7F382BB5D345003B73CC /* EntityManager.swift */,
-				0198061A2C0645C7005BB011 /* SystemManager.swift */,
+				0155A0EF2BBB382C008AEA0B /* GameScene.swift */,
 				019806162C063DE4005BB011 /* GameManager.swift */,
+				01CE7F382BB5D345003B73CC /* World.swift */,
+				0198061A2C0645C7005BB011 /* SystemManager.swift */,
+				019806182C064020005BB011 /* GameSettings.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -303,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				01CE7F282BB5D2F2003B73CC /* MedievalWar */,
+				01BA771E2C0F7AAE00676979 /* EngineTests */,
 				01CE7F272BB5D2F2003B73CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -311,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				01CE7F262BB5D2F2003B73CC /* MedievalWar.app */,
+				01BA771D2C0F7AAE00676979 /* EngineTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -361,6 +394,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		01BA771C2C0F7AAE00676979 /* EngineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01BA77252C0F7AAE00676979 /* Build configuration list for PBXNativeTarget "EngineTests" */;
+			buildPhases = (
+				01BA77192C0F7AAE00676979 /* Sources */,
+				01BA771A2C0F7AAE00676979 /* Frameworks */,
+				01BA771B2C0F7AAE00676979 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01BA77222C0F7AAE00676979 /* PBXTargetDependency */,
+			);
+			name = EngineTests;
+			productName = EngineTests;
+			productReference = 01BA771D2C0F7AAE00676979 /* EngineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		01CE7F252BB5D2F2003B73CC /* MedievalWar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01CE7F352BB5D2F3003B73CC /* Build configuration list for PBXNativeTarget "MedievalWar" */;
@@ -385,9 +436,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					01BA771C2C0F7AAE00676979 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 01CE7F252BB5D2F2003B73CC;
+					};
 					01CE7F252BB5D2F2003B73CC = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -407,11 +462,19 @@
 			projectRoot = "";
 			targets = (
 				01CE7F252BB5D2F2003B73CC /* MedievalWar */,
+				01BA771C2C0F7AAE00676979 /* EngineTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		01BA771B2C0F7AAE00676979 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01CE7F242BB5D2F2003B73CC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,6 +487,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		01BA77192C0F7AAE00676979 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01BA77202C0F7AAE00676979 /* EngineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01CE7F222BB5D2F2003B73CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,8 +509,9 @@
 				01ED03832BFE361100E3EFA4 /* PipelineDescriptor.swift in Sources */,
 				01ED03812BFE35FB00E3EFA4 /* PipelineState.swift in Sources */,
 				01ED03742BFE1B4700E3EFA4 /* VertexDescriptorLibrary.swift in Sources */,
+				01BA77292C0F8A4100676979 /* ArchetypeEntity.swift in Sources */,
 				01ED03702BFE1B4700E3EFA4 /* FragmentShaderLibrary.swift in Sources */,
-				01CE7F392BB5D345003B73CC /* EntityManager.swift in Sources */,
+				01CE7F392BB5D345003B73CC /* World.swift in Sources */,
 				0155A0F52BBB3A70008AEA0B /* Component.swift in Sources */,
 				01ED036A2BFE1B4700E3EFA4 /* simd+Extensions.swift in Sources */,
 				01ED036C2BFE1B4700E3EFA4 /* MetalManager.swift in Sources */,
@@ -447,7 +519,6 @@
 				0155A0F02BBB382C008AEA0B /* GameScene.swift in Sources */,
 				0155A0FF2BBB4347008AEA0B /* MovementSystem.swift in Sources */,
 				014BD2442C0798E900B1663B /* Scale.swift in Sources */,
-				014BD2422C0793B200B1663B /* ComponentManager+Fetch.swift in Sources */,
 				019352E52BBDA0B50082A1BF /* AABB.swift in Sources */,
 				012F5C562BFFC41400184463 /* RenderSystem.swift in Sources */,
 				01ED03712BFE1B4700E3EFA4 /* MeshLibrary.swift in Sources */,
@@ -455,11 +526,11 @@
 				01ED036D2BFE1B4700E3EFA4 /* RenderNode.swift in Sources */,
 				0155A0FD2BBB4297008AEA0B /* Velocity.swift in Sources */,
 				012F5C3D2BFF6E7D00184463 /* Float3.swift in Sources */,
+				01BA77272C0F7DDB00676979 /* Entity.swift in Sources */,
 				01BCBBAE2BBC71E40036BD81 /* AppleKeyboard.swift in Sources */,
 				01ED03722BFE1B4700E3EFA4 /* PipelineDescriptorLibrary.swift in Sources */,
 				012F5C482BFFB6D600184463 /* InputManager.swift in Sources */,
 				0155A0E72BBB1F48008AEA0B /* AppleGameView.swift in Sources */,
-				01BBAD552C065CC000843CE7 /* ComponentManager.swift in Sources */,
 				01ED03872BFE363400E3EFA4 /* FragmentShader.swift in Sources */,
 				0155A0FB2BBB4113008AEA0B /* Body.swift in Sources */,
 				012F5C542BFFC0E900184463 /* MetalView.swift in Sources */,
@@ -479,6 +550,7 @@
 				01CE7F2A2BB5D2F2003B73CC /* MainApp.swift in Sources */,
 				01ED036B2BFE1B4700E3EFA4 /* MetalLibraryError.swift in Sources */,
 				01BCBBA62BBC1DC00036BD81 /* MedievalWarGame.swift in Sources */,
+				01B391F42C0E0E3B000E8F29 /* Archetype.swift in Sources */,
 				01ED03852BFE362300E3EFA4 /* MeshType.swift in Sources */,
 				01ED03732BFE1B4700E3EFA4 /* PipelineStateLibrary.swift in Sources */,
 			);
@@ -486,7 +558,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		01BA77222C0F7AAE00676979 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01CE7F252BB5D2F2003B73CC /* MedievalWar */;
+			targetProxy = 01BA77212C0F7AAE00676979 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		01BA77232C0F7AAE00676979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4FV3MXV8J6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.geovanacontine.EngineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedievalWar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MedievalWar";
+			};
+			name = Debug;
+		};
+		01BA77242C0F7AAE00676979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4FV3MXV8J6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.geovanacontine.EngineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedievalWar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MedievalWar";
+			};
+			name = Release;
+		};
 		01CE7F332BB5D2F3003B73CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -602,6 +726,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
@@ -666,6 +791,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		01BA77252C0F7AAE00676979 /* Build configuration list for PBXNativeTarget "EngineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01BA77232C0F7AAE00676979 /* Debug */,
+				01BA77242C0F7AAE00676979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		01CE7F212BB5D2F2003B73CC /* Build configuration list for PBXProject "MedievalWar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

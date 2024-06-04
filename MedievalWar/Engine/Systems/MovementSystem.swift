@@ -3,16 +3,15 @@ import Foundation
 struct MovementSystem: System {
     
     func update(deltaTime: TimeInterval) {
-        manager.components.fetch(Position.self, Velocity.self) { position, velocity in
-            
-            guard let vel = velocity else { return }
-            guard let pos = position else { return }
-            
-            let nextX = pos.x + vel.x * deltaTime
-            let nextY = pos.y - vel.y * deltaTime
-            
-            position?.x = nextX
-            position?.y = nextY
+        
+        c.get(id: "Move") { arch in
+            arch.forEach(Velocity.self, Position.self) { velocity, position in
+                let nextX = position.x + velocity.x * deltaTime
+                let nextY = position.y - velocity.y * deltaTime
+                
+                position.x = nextX
+                position.y = nextY
+            }
         }
     }
 }

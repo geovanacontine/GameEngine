@@ -4,6 +4,8 @@ class GameScene {
     
     private let manager = GameManager.shared
     
+    var world: World { manager.world }
+    
     // Timers
     private var timer: Timer?
     private var lastUpdate: TimeInterval
@@ -15,7 +17,6 @@ class GameScene {
     }
     
     // Life Cicle
-    func componentsToRegister() -> [Component.Type] { [] }
     func systemsToRegister() -> [System] { [] }
     func onStart() { print(#function) }
 }
@@ -24,9 +25,7 @@ class GameScene {
 
 private extension GameScene {
     private func setup() {
-        let components = componentsToRegister()
         let systems = systemsToRegister()
-        manager.components.register(components)
         manager.systems.register(systems)
         setupMainLoop()
     }

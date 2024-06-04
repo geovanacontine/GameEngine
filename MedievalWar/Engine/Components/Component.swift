@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Component {}
+protocol Component: Equatable {}
 
 extension Component {
     static var id: String { String(describing: self) }

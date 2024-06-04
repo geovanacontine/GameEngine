@@ -7,4 +7,5 @@ protocol System {
 
 extension System {
     var manager: GameManager { GameManager.shared }
+    var c: World { manager.world }
 }
