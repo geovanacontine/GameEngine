@@ -1,20 +1,18 @@
 import Foundation
 
-class GameManager {
+class GameEngine {
     
     let input: InputManager
     let output: OutputManager
-    let world: World
-    let systems: SystemManager
     let settings: GameSettings
+    let entityManager: EntityManager
     
-    static let shared = GameManager()
+    static let shared = GameEngine()
     
     private init() {
         input = InputManager()
         output = OutputManager()
-        world = World()
-        systems = SystemManager()
         settings = GameSettings()
+        entityManager = EntityManager()
     }
 }

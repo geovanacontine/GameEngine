@@ -7,41 +7,43 @@
 
 import Foundation
 
-class MedievalWarGame: GameScene {
+class MedievalWarGame {
     
-    override func systemsToRegister() -> [System] {
-        [
+    let entityManager = GameEngine.shared.entityManager
+    let world = World()
+    
+    init() {
+        world.registerSystems(
             InputSystem(),
             MovementSystem(),
             RenderSystem()
-        ]
-    }
-    
-    override func onStart() {
+        )
         
-        let moveArchetype = Archetype(componentTypes: [Velocity.self, Mesh.self, Position.self, Rotation.self, Scale.self])
-        world.register(archetype: moveArchetype, withId: "Move")
-        
-        
-        for i in 0..<1000 {
-            world.spawn(archetype: "Move", components: [
-                Velocity(maxSpeed: 1.01 * Double(i), x: 0, y: 0),
+        for _ in 0..<500 {
+            entityManager.spawn(
                 Mesh(pipelineState: .basic, meshType: .triangle),
-                Position(x: 0, y: 0, z: 0),
-                Rotation(x: 0, y: 0, z: 0),
-                Scale(x: 1, y: 1, z: 1)
-            ])
+                Position(x: 0, y: 0, z: 0)
+            )
         }
         
-//        for _ in 0..<9000 {
-//            world.spawn(
-//                archetype: BackgroundArchetype(
-//                    mesh: .init(pipelineState: .basic, meshType: .triangle),
-//                    position: .init(x: 0, y: 0, z: 0),
-//                    rotation: .init(x: 0, y: 0, z: 0),
-//                    scale: .init(x: 1, y: 1, z: 1)
-//                )
-//            )
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            for i in 0..<500 {
+                let velocity = Velocity(maxSpeed: 1.01 * Double(i), x: 0, y: 0)
+                self.entityManager.add(component: velocity, to: i)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            for i in 0..<500 {
+                self.entityManager.remove(component: Mesh.self, from: i)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            for i in 0..<500 {
+                let mesh = Mesh(pipelineState: .basic, meshType: .quad)
+                self.entityManager.add(component: mesh, to: i)
+            }
+        }
     }
 }

@@ -1,11 +1,10 @@
 import Foundation
 
 protocol System {
-    var manager: GameManager { get }
     func update(deltaTime: TimeInterval)
 }
 
 extension System {
-    var manager: GameManager { GameManager.shared }
-    var c: World { manager.world }
+    var engine: GameEngine { GameEngine.shared }
+    var entityManager: EntityManager { engine.entityManager }
 }
