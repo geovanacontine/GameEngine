@@ -5,13 +5,13 @@ struct RenderSystem: System {
         
         var nodes: [RenderNode] = []
         
-        entityManager.forEach(Mesh.self, Position.self) { mesh, position in
+        entityManager.forEach(Mesh.self, Position.self, Scale.self, Rotation.self) { mesh, position, scale, rotation in
             nodes.append(
                 RenderNode(
                     mesh: mesh,
                     position: position,
-                    rotation: .init(x: 0, y: 0, z: 0),
-                    scale: .init(x: 0, y: 0, z: 0)
+                    rotation: rotation,
+                    scale: scale
                 )
             )
         }
