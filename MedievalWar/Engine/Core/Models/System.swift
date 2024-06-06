@@ -1,10 +1,9 @@
 import Foundation
 
 protocol System {
-    func update(deltaTime: TimeInterval)
+    func update(entityManager: EntityManager, deltaTime: TimeInterval)
 }
 
 extension System {
     var engine: GameEngine { GameEngine.shared }
-    var entityManager: EntityManager { engine.entityManager }
 }

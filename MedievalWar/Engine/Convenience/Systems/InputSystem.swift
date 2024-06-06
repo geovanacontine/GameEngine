@@ -1,7 +1,7 @@
 import Foundation
 
 struct InputSystem: System {
-    func update(deltaTime: TimeInterval) {
+    func update(entityManager: EntityManager, deltaTime: TimeInterval) {
         
         guard let inputDevice = engine.input.device else { return }
         

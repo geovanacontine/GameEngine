@@ -9,11 +9,11 @@ import Foundation
 
 class MedievalWarGame {
     
-    let entityManager = GameEngine.shared.entityManager
     let world = World()
     
     init() {
         world.registerSystems(
+            AnalyticsSystem(),
             InputSystem(),
             MovementSystem(),
             RotationSystem(),
@@ -21,8 +21,8 @@ class MedievalWarGame {
         )
         
         for y in -10..<10 {
-            for i in -10..<10 {
-                entityManager.spawn(
+            for i in -15..<15 {
+                world.entityManager.spawn(
                     Mesh(pipelineState: .basic, meshType: .quad),
                     Scale(x: 0.1, y: 0.1, z: 0.1),
                     Rotation(x: 0, y: 0, z: 0),

@@ -1,7 +1,7 @@
 import Foundation
 
 struct RenderSystem: System {
-    func update(deltaTime: TimeInterval) {
+    func update(entityManager: EntityManager, deltaTime: TimeInterval) {
         
         var nodes: [RenderNode] = []
         

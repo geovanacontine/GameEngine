@@ -5,7 +5,7 @@ class GameEngine {
     let input: InputManager
     let output: OutputManager
     let settings: GameSettings
-    let entityManager: EntityManager
+    let analytics: GameAnalytics
     
     static let shared = GameEngine()
     
@@ -13,6 +13,6 @@ class GameEngine {
         input = InputManager()
         output = OutputManager()
         settings = GameSettings()
-        entityManager = EntityManager()
+        analytics = GameAnalytics()
     }
 }

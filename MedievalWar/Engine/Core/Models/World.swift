@@ -2,6 +2,9 @@ import Foundation
 
 class World {
     
+    // Managers
+    let entityManager = EntityManager()
+    
     // Data
     private var systems: [System] = []
     private let engine = GameEngine.shared
@@ -10,10 +13,6 @@ class World {
     private var timer: Timer?
     private var lastUpdate: TimeInterval
     private var frameRate: Double { engine.settings.desiredFrameRate }
-    
-    // Analytics
-    private var clock = ContinuousClock()
-    private let totalLoopTime = 1.0/60.0
     
     init() {
         lastUpdate = Date().timeIntervalSince1970
@@ -48,15 +47,20 @@ private extension World {
     }
     
     func runSystems(deltaTime: TimeInterval) {
+        
+        var systemPerformance: [String: Double] = [:]
+        
         for system in systems {
             
-            let duration = clock.measure {
-                system.update(deltaTime: deltaTime)
-            }
+            let startTime = Date().timeIntervalSince1970
+            system.update(entityManager: entityManager, deltaTime: deltaTime)
+            let duration = Date().timeIntervalSince1970 - startTime
             
-            let systemName = String(describing: system)
-            let prop = (duration / totalLoopTime) * 100
-            print("[\(systemName)] - \(prop)")
+            let systemName = String(describing: type(of: system))
+            let performance = duration / (1/frameRate)
+            systemPerformance.updateValue(performance, forKey: systemName)
         }
+        
+        engine.analytics.send(type: .systems(performance: systemPerformance))
     }
 }
