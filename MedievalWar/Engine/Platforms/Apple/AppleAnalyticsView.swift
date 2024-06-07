@@ -50,7 +50,8 @@ struct AppleAnalyticsView: View {
         data.systems.sorted(by: { $0.value > $1.value }).map { systemPerformance in
             let value = systemPerformance.value * 100
             let valueString = String(format: "%.2f", value)
-            return (systemPerformance.key, valueString)
+            let name = systemPerformance.key.replacingOccurrences(of: "System", with: "")
+            return (name, valueString)
         }
     }
 }

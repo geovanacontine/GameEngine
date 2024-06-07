@@ -33,46 +33,45 @@ extension matrix_float4x4 {
         return matrix_multiply(self, scaleMatrix)
     }
     
-    func rotated(angle: Float, axis: simd_float3) -> matrix_float4x4 {
+    func rotatedAroundX(angle i: Float) -> matrix_float4x4 {
         
-        var result = matrix_identity_float4x4
-        
-        let x = axis.x
-        let y = axis.y
-        let z = axis.z
-        
-        let c: Float = cos(angle)
-        let s: Float = sin(angle)
-        
-        let mc: Float = (1 - c)
-        
-        let r1c1: Float = x * x * mc + c
-        let r2c1: Float = x * y * mc + z * s
-        let r3c1: Float = x * z * mc - y * s
-        let r4c1: Float = 0.0
-        
-        let r1c2: Float = y * x * mc - z * s
-        let r2c2: Float = y * y * mc + c
-        let r3c2: Float = y * z * mc + x * s
-        let r4c2: Float = 0.0
-        
-        let r1c3: Float = z * x * mc + y * s
-        let r2c3: Float = z * y * mc - x * s
-        let r3c3: Float = z * z * mc + c
-        let r4c3: Float = 0.0
-        
-        let r1c4: Float = 0.0
-        let r2c4: Float = 0.0
-        let r3c4: Float = 0.0
-        let r4c4: Float = 1.0
-        
-        result.columns = (
-            simd_float4(r1c1, r2c1, r3c1, r4c1),
-            simd_float4(r1c2, r2c2, r3c2, r4c2),
-            simd_float4(r1c3, r2c3, r3c3, r4c3),
-            simd_float4(r1c4, r2c4, r3c4, r4c4)
+        let rotationMatrix = matrix_float4x4(
+            .init(x: 1, y: 0, z: 0, w: 0),
+            .init(x: 0, y: cos(i), z: -sin(i), w: 0),
+            .init(x: 0, y: sin(i), z: cos(i), w: 0),
+            .init(x: 0, y: 0, z: 0, w: 1)
         )
         
-        return matrix_multiply(self, result)
+        return matrix_multiply(self, rotationMatrix)
+    }
+    
+    func rotatedAroundY(angle i: Float) -> matrix_float4x4 {
+        
+        let rotationMatrix = matrix_float4x4(
+            .init(x: cos(i), y: 0, z: sin(i), w: 0),
+            .init(x: 0, y: 1, z: 0, w: 0),
+            .init(x: -sin(i), y: 0, z: cos(i), w: 0),
+            .init(x: 0, y: 0, z: 0, w: 1)
+        )
+        
+        return matrix_multiply(self, rotationMatrix)
+    }
+    
+    func rotatedAroundZ(angle i: Float) -> matrix_float4x4 {
+        
+        let rotationMatrix = matrix_float4x4(
+            .init(x: cos(i), y: -sin(i), z: 0, w: 0),
+            .init(x: sin(i), y: cos(i), z: 0, w: 0),
+            .init(x: 0, y: 0, z: 1, w: 0),
+            .init(x: 0, y: 0, z: 0, w: 1)
+        )
+        
+        return matrix_multiply(self, rotationMatrix)
+    }
+    
+    func rotated(to rotation: simd_float3) -> matrix_float4x4 {
+        rotatedAroundX(angle: rotation.x)
+            .rotatedAroundY(angle: rotation.y)
+            .rotatedAroundZ(angle: rotation.z)
     }
 }

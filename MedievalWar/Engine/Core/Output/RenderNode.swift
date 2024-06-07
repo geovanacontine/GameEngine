@@ -21,9 +21,7 @@ struct RenderNode {
         
         modelMatrix = matrix_identity_float4x4
             .translated(to: simdPosition)
-            .rotated(angle: simdRotation.x, axis: .init(x: 1, y: 0, z: 0))
-            .rotated(angle: simdRotation.y, axis: .init(x: 0, y: 1, z: 0))
-            .rotated(angle: simdRotation.z, axis: .init(x: 0, y: 0, z: 1))
+            .rotated(to: simdRotation)
             .scaled(to: simdScale)
     }
 }
