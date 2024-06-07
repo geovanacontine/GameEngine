@@ -22,6 +22,10 @@
 		013A64E32C1227CB001FBFFF /* AppleAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A64E22C1227CB001FBFFF /* AppleAnalyticsView.swift */; };
 		013A64E52C122AFA001FBFFF /* OutputAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A64E42C122AFA001FBFFF /* OutputAnalytics.swift */; };
 		013A64E72C122CDF001FBFFF /* AppleAnalyticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A64E62C122CDF001FBFFF /* AppleAnalyticsData.swift */; };
+		013A64EA2C1331B9001FBFFF /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A64E92C1331B9001FBFFF /* Node.swift */; };
+		013A64EC2C1331C4001FBFFF /* CameraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A64EB2C1331C4001FBFFF /* CameraNode.swift */; };
+		013A64EE2C1332A7001FBFFF /* CameraSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A64ED2C1332A7001FBFFF /* CameraSystem.swift */; };
+		013A64F02C133318001FBFFF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A64EF2C133318001FBFFF /* Camera.swift */; };
 		014BD2442C0798E900B1663B /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BD2432C0798E900B1663B /* Scale.swift */; };
 		014BD2462C0798F400B1663B /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BD2452C0798F400B1663B /* Rotation.swift */; };
 		0155A0E72BBB1F48008AEA0B /* AppleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155A0E62BBB1F48008AEA0B /* AppleGameView.swift */; };
@@ -98,6 +102,10 @@
 		013A64E22C1227CB001FBFFF /* AppleAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAnalyticsView.swift; sourceTree = "<group>"; };
 		013A64E42C122AFA001FBFFF /* OutputAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputAnalytics.swift; sourceTree = "<group>"; };
 		013A64E62C122CDF001FBFFF /* AppleAnalyticsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAnalyticsData.swift; sourceTree = "<group>"; };
+		013A64E92C1331B9001FBFFF /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		013A64EB2C1331C4001FBFFF /* CameraNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraNode.swift; sourceTree = "<group>"; };
+		013A64ED2C1332A7001FBFFF /* CameraSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSystem.swift; sourceTree = "<group>"; };
+		013A64EF2C133318001FBFFF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		014BD2432C0798E900B1663B /* Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		014BD2452C0798F400B1663B /* Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 		0155A0E62BBB1F48008AEA0B /* AppleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleGameView.swift; sourceTree = "<group>"; };
@@ -217,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */,
+				013A64D92C11DBA9001FBFFF /* RotationSystem.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -251,6 +260,16 @@
 			path = Platforms;
 			sourceTree = "<group>";
 		};
+		013A64E82C1331AF001FBFFF /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				01ED035C2BFE1B4700E3EFA4 /* RenderNode.swift */,
+				013A64EB2C1331C4001FBFFF /* CameraNode.swift */,
+				013A64E92C1331B9001FBFFF /* Node.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
 		0155A0E52BBB1F3C008AEA0B /* macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				0155A0FC2BBB4297008AEA0B /* Velocity.swift */,
+				013A64EF2C133318001FBFFF /* Camera.swift */,
 				012F5C3A2BFF6E4100184463 /* Position.swift */,
 				014BD2452C0798F400B1663B /* Rotation.swift */,
 				014BD2432C0798E900B1663B /* Scale.swift */,
@@ -289,8 +309,8 @@
 			children = (
 				01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */,
 				0155A0FE2BBB4347008AEA0B /* MovementSystem.swift */,
-				013A64D92C11DBA9001FBFFF /* RotationSystem.swift */,
 				012F5C552BFFC41400184463 /* RenderSystem.swift */,
+				013A64ED2C1332A7001FBFFF /* CameraSystem.swift */,
 				013A64E02C121CFE001FBFFF /* AnalyticsSystem.swift */,
 			);
 			path = Systems;
@@ -364,10 +384,10 @@
 		01BCBBAB2BBC71BB0036BD81 /* Output */ = {
 			isa = PBXGroup;
 			children = (
+				013A64E82C1331AF001FBFFF /* Nodes */,
 				012F5C4C2BFFB9C100184463 /* OutputManager.swift */,
 				012F5C4E2BFFB9E200184463 /* OutputRender.swift */,
 				013A64E42C122AFA001FBFFF /* OutputAnalytics.swift */,
-				01ED035C2BFE1B4700E3EFA4 /* RenderNode.swift */,
 			);
 			path = Output;
 			sourceTree = "<group>";
@@ -556,6 +576,7 @@
 				01ED036E2BFE1B4700E3EFA4 /* Shaders.metal in Sources */,
 				019352E72BBDA11E0082A1BF /* BVH.swift in Sources */,
 				01821F3D2C109199000C1967 /* Archetype+Private.swift in Sources */,
+				013A64EA2C1331B9001FBFFF /* Node.swift in Sources */,
 				014BD2462C0798F400B1663B /* Rotation.swift in Sources */,
 				01BCBBAA2BBC6DCF0036BD81 /* InputSystem.swift in Sources */,
 				01ED03832BFE361100E3EFA4 /* PipelineDescriptor.swift in Sources */,
@@ -582,8 +603,10 @@
 				012F5C3D2BFF6E7D00184463 /* Float3.swift in Sources */,
 				01BA77272C0F7DDB00676979 /* Entity.swift in Sources */,
 				01BCBBAE2BBC71E40036BD81 /* AppleKeyboard.swift in Sources */,
+				013A64EE2C1332A7001FBFFF /* CameraSystem.swift in Sources */,
 				01821F3F2C10DC26000C1967 /* EntityManager+Query.swift in Sources */,
 				013A64E32C1227CB001FBFFF /* AppleAnalyticsView.swift in Sources */,
+				013A64EC2C1331C4001FBFFF /* CameraNode.swift in Sources */,
 				01ED03722BFE1B4700E3EFA4 /* PipelineDescriptorLibrary.swift in Sources */,
 				012F5C482BFFB6D600184463 /* InputManager.swift in Sources */,
 				0155A0E72BBB1F48008AEA0B /* AppleGameView.swift in Sources */,
@@ -594,6 +617,7 @@
 				01ED03682BFE1B4700E3EFA4 /* AppleRender.swift in Sources */,
 				013A64E72C122CDF001FBFFF /* AppleAnalyticsData.swift in Sources */,
 				012F5C4F2BFFB9E200184463 /* OutputRender.swift in Sources */,
+				013A64F02C133318001FBFFF /* Camera.swift in Sources */,
 				01BCBBA42BBC1B160036BD81 /* Array+Extension.swift in Sources */,
 				012F5C3B2BFF6E4100184463 /* Position.swift in Sources */,
 				01ED037F2BFE35EB00E3EFA4 /* VertexDescriptor.swift in Sources */,

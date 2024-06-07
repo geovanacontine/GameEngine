@@ -13,11 +13,12 @@ struct RasterizerData {
 
 vertex RasterizerData basicVertexShader(
                                         const Vertex vertexIn [[ stage_in ]],
-                                        constant float4x4 &modelMatrix [[ buffer(1) ]]
+                                        constant float4x4 &viewMatrix [[ buffer(1) ]],
+                                        constant float4x4 &modelMatrix [[ buffer(2) ]]
                                         ) {
     RasterizerData data;
     
-    data.position = modelMatrix * simd_float4(vertexIn.position, 1);
+    data.position = viewMatrix* modelMatrix * simd_float4(vertexIn.position, 1);
     data.color = vertexIn.color;
     
     return data;

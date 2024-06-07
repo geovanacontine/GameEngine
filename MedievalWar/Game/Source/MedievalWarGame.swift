@@ -17,6 +17,7 @@ class MedievalWarGame {
             InputSystem(),
             MovementSystem(),
             RotationSystem(),
+            CameraSystem(),
             RenderSystem()
         )
         
@@ -32,11 +33,17 @@ class MedievalWarGame {
             }
         }
         
+        world.entityManager.spawn(
+            Camera(isActive: true),
+            Rotation(x: 0, y: 0, z: 0),
+            Position(x: 0, y: 0, z: 0)
+        )
+        
 //        world.entityManager.spawn(
 //            Mesh(pipelineState: .basic, meshType: .quad),
 //            Scale(x: 0.2, y: 0.2, z: 0),
 //            Rotation(x: 0, y: 0, z: 0),
-//            Position(x: -0.3, y: -0.3, z: 0),
+//            Position(x: 0, y: 0, z: 0),
 //            Velocity(maxSpeed: 0.5, x: 0, y: 0)
 //        )
     }

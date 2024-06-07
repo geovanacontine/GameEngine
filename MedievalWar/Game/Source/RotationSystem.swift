@@ -10,5 +10,9 @@ struct RotationSystem: System {
             position.x = (cos(time) * vel) + velocity.maxSpeed
             rotation.z = (cos(time) * vel) + velocity.maxSpeed
         }
+        
+        entityManager.forEach(Camera.self, Position.self) { camera, position in
+            position.y = (cos(time) * vel)
+        }
     }
 }
