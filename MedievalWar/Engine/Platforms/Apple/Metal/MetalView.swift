@@ -13,6 +13,7 @@ struct MetalView: NSViewRepresentable {
         view.drawableSize = view.frame.size
         view.isPaused = false
         view.colorPixelFormat = render.manager.pixelFormat
+        view.depthStencilPixelFormat = render.manager.depthStencilPixelFormat
         
         return view
     }

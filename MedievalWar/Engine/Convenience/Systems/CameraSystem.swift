@@ -10,6 +10,7 @@ struct CameraSystem: System {
             
             cameras.append(
                 CameraNode(
+                    projectionType: camera.projectionType, 
                     position: position,
                     rotation: rotation,
                     scale: .init(x: 1, y: 1, z: 1)

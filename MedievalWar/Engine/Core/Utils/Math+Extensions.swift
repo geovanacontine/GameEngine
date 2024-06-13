@@ -74,4 +74,30 @@ extension matrix_float4x4 {
             .rotatedAroundY(angle: rotation.y)
             .rotatedAroundZ(angle: rotation.z)
     }
+    
+    static func projectionPerspective(degreesFov: Float, aspectRatio: Float, near n: Float, far f: Float) -> matrix_float4x4 {
+        
+        let fov = degreesFov.toRadians()
+        
+        let a = 1/(aspectRatio * tan(fov/2))
+        let b = 1/(tan(fov/2))
+        let c = -((f+n)/(f-n))
+        let d = -(2*f*n)/(f-n)
+        
+        let projectionPerspectiveMatrix = matrix_float4x4(
+            .init(x: a, y: 0, z: 0, w: 0),
+            .init(x: 0, y: b, z: 0, w: 0),
+            .init(x: 0, y: 0, z: c, w: -1),
+            .init(x: 0, y: 0, z: d, w: 1)
+        )
+        
+        return projectionPerspectiveMatrix
+    }
+}
+
+
+extension Float {
+    func toRadians() -> Float {
+        (self/180) * .pi
+    }
 }

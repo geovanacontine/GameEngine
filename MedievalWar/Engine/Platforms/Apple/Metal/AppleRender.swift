@@ -1,6 +1,6 @@
 import MetalKit
 
-class AppleRender: NSObject, OutputRender {
+class AppleRender: NSObject {
     
     // Dependencies
     let manager: MetalManager
@@ -9,33 +9,27 @@ class AppleRender: NSObject, OutputRender {
     private var camera: CameraNode
     private var nodes: [RenderNode] = []
     
-    init(pixelFormat: MTLPixelFormat = .bgra8Unorm) {
-        manager = try! MetalManager(pixelFormat: pixelFormat)
+    override init() {
+        manager = try! MetalManager()
         
         camera = CameraNode(
+            projectionType: .perspective,
             position: .init(x: 0, y: 0, z: 0),
             rotation: .init(x: 0, y: 0, z: 0),
             scale: .init(x: 1, y: 1, z: 1)
         )
     }
-    
+}
+
+// MARK: - OutputRender
+
+extension AppleRender: OutputRender {
     func draw(nodes: [RenderNode]) {
         self.nodes = nodes
     }
     
     func setup(camera: CameraNode) {
         self.camera = camera
-    }
-    
-    func render(node: inout RenderNode, withEncoder encoder: MTLRenderCommandEncoder) throws {
-        let pipeline = try manager.pipelineState.object(ofType: node.mesh.pipelineState)
-        let mesh = try manager.meshLibrary.object(ofType: node.mesh.meshType)
-        
-        encoder.setVertexBytes(&camera.matrix, length: matrix_float4x4.size(), index: 1)
-        encoder.setVertexBytes(&node.matrix, length: matrix_float4x4.size(), index: 2)
-        encoder.setRenderPipelineState(pipeline)
-        encoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
-        encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: mesh.verticesCount)
     }
 }
 
@@ -63,4 +57,22 @@ extension AppleRender: MTKViewDelegate {
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
+    
+    func render(node: inout RenderNode, withEncoder encoder: MTLRenderCommandEncoder) throws {
+        
+        // Data
+        let mesh = try manager.meshLibrary.object(ofType: node.mesh.type)
+        
+        // Pipeline
+        encoder.setRenderPipelineState(manager.renderPipelineState)
+        encoder.setDepthStencilState(manager.depthStencilState)
+        
+        // Matrices
+        encoder.setVertexBytes(&camera.data, length: CameraNode.CameraData.size(), index: 1)
+        encoder.setVertexBytes(&node.modelMatrix, length: matrix_float4x4.size(), index: 2)
+        
+        // Mesh
+        encoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
+        encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: mesh.verticesCount)
+    }
 }

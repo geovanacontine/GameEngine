@@ -3,16 +3,15 @@ import Foundation
 struct RotationSystem: System {
     func update(entityManager: EntityManager, deltaTime: TimeInterval) {
         
-        let vel = 0.3
         let time = engine.analytics.data.elapsedTime
         
         entityManager.forEach(Position.self, Rotation.self, Velocity.self) { position, rotation, velocity in
-            position.x = (cos(time) * vel) + velocity.maxSpeed
-            rotation.z = (cos(time) * vel) + velocity.maxSpeed
+            rotation.y = 2 * cos(time) + velocity.maxSpeed
         }
         
-        entityManager.forEach(Camera.self, Position.self) { camera, position in
-            position.y = (cos(time) * vel)
+        entityManager.forEach(Camera.self, Position.self, Rotation.self) { camera, position, rotation in
+            position.x = sin(time) * 5
+            rotation.x = cos(time)
         }
     }
 }
