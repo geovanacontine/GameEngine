@@ -1,7 +1,7 @@
 import Foundation
 
 struct Scale: Component {
-    var x: Double
-    var y: Double
-    var z: Double
+    var x: Double = 1
+    var y: Double = 1
+    var z: Double = 1
 }

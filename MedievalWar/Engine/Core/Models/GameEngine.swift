@@ -4,7 +4,7 @@ class GameEngine {
     
     let input: InputManager
     let output: OutputManager
-    let settings: GameSettings
+    var settings: GameSettings
     let analytics: GameAnalytics
     
     static let shared = GameEngine()

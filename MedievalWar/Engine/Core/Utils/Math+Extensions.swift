@@ -93,6 +93,31 @@ extension matrix_float4x4 {
         
         return projectionPerspectiveMatrix
     }
+    
+    static func projectionOrthographic(
+        position: Float,
+        distance: Float,
+        size: Float,
+        width: Float,
+        height: Float
+    ) -> matrix_float4x4 {
+        
+        let near: Float = position
+        let far: Float = position + distance
+        let right: Float = (width/size)/2
+        let left: Float = -(width/size)/2
+        let top: Float = (height/size)/2
+        let bottom: Float = -(height/size)/2
+        
+        let projectionOrthographicMatrix = matrix_float4x4(
+            .init(x: 2/(right-left), y: 0, z: 0, w: -(right+left)/(right-left)),
+            .init(x: 0, y: 2/(top-bottom), z: 0, w: -(top+bottom)/(top-bottom)),
+            .init(x: 0, y: 0, z: -2/(far-near), w: -(far+near)/(far-near)),
+            .init(x: 0, y: 0, z: 0, w: 1)
+        )
+        
+        return projectionOrthographicMatrix
+    }
 }
 
 

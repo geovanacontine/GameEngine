@@ -6,7 +6,7 @@ struct MTLMesh {
     let verticesCount: Int
     
     init(device: MTLDevice, vertices: [Vertex]) throws {
-        guard let buffer = device.makeBuffer(bytes: vertices, length: Vertex.size(count: vertices.count))
+        guard let buffer = device.makeBuffer(bytes: vertices, length: Vertex.size(count: vertices.count + 1))
         else { throw MetalLibraryError.deviceMakeBufferFailed }
         
         vertexBuffer = buffer

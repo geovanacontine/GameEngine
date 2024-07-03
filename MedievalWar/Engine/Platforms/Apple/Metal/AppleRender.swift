@@ -56,12 +56,16 @@ extension AppleRender: MTKViewDelegate {
         commandBuffer.commit()
     }
     
-    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        let engine = GameEngine.shared
+        engine.settings.screenWidth = Double(size.width)
+        engine.settings.screenHeight = Double(size.height)
+    }
     
     func render(node: inout RenderNode, withEncoder encoder: MTLRenderCommandEncoder) throws {
         
         // Data
-        let mesh = try manager.meshLibrary.object(ofType: node.mesh.type)
+        let mesh = try manager.meshLibrary.object(ofType: node.sprite.meshType)
         
         // Pipeline
         encoder.setRenderPipelineState(manager.renderPipelineState)
@@ -70,6 +74,10 @@ extension AppleRender: MTKViewDelegate {
         // Matrices
         encoder.setVertexBytes(&camera.data, length: CameraNode.CameraData.size(), index: 1)
         encoder.setVertexBytes(&node.modelMatrix, length: matrix_float4x4.size(), index: 2)
+        
+        // Fragment
+        encoder.setFragmentSamplerState(manager.samplerState, index: 0)
+        encoder.setFragmentTexture(manager.makeTexture(named: node.sprite.name), index: 0)
         
         // Mesh
         encoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)

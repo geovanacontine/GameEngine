@@ -1,14 +1,14 @@
 import Foundation
 
-struct RenderSystem: System {
+struct Render2DSystem: System {
     func update(entityManager: EntityManager, deltaTime: TimeInterval) {
         
         var nodes: [RenderNode] = []
         
-        entityManager.forEach(Mesh.self, Position.self, Scale.self, Rotation.self) { mesh, position, scale, rotation in
+        entityManager.forEach(Sprite.self, Position.self, Scale.self, Rotation.self) { sprite, position, scale, rotation in
             nodes.append(
                 RenderNode(
-                    mesh: mesh,
+                    sprite: sprite,
                     position: position,
                     rotation: rotation,
                     scale: scale

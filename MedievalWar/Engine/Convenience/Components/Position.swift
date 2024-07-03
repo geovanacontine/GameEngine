@@ -3,5 +3,5 @@ import Foundation
 struct Position: Component {
     var x: Double
     var y: Double
-    var z: Double
+    var z: Double = 0
 }

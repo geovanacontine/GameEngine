@@ -19,6 +19,7 @@ struct MetalManager {
     var vertexFunction: MTLFunction!
     var vertexDescriptor: MTLVertexDescriptor!
     var fragmentFunction: MTLFunction!
+    var samplerState: MTLSamplerState!
     
     init() throws {
         
@@ -26,7 +27,7 @@ struct MetalManager {
         guard let defaultLibrary = device.makeDefaultLibrary() else { throw MetalLibraryError.defaultLibraryNotFound }
         guard let commandQueue = device.makeCommandQueue() else { throw MetalLibraryError.defaultCommandQueueNotFound }
         
-        self.pixelFormat = .bgra8Unorm
+        self.pixelFormat = .bgra8Unorm_srgb
         self.depthStencilPixelFormat = .depth32Float
         
         self.device = device
@@ -39,6 +40,7 @@ struct MetalManager {
         vertexDescriptor = makeVertexDescriptor()
         depthStencilState = makeDepthStencilState()
         renderPipelineState = makeRenderPipelineState()
+        samplerState = makeSamplerState()
     }
 }
 
@@ -58,6 +60,11 @@ extension MetalManager {
         descriptor.attributes[1].bufferIndex = 0
         descriptor.attributes[1].offset = simd_float3.size()
         
+        // Texture Coordinates
+        descriptor.attributes[2].format = .float2
+        descriptor.attributes[2].bufferIndex = 0
+        descriptor.attributes[2].offset = simd_float3.size() + simd_float4.size()
+        
         // Layout
         descriptor.layouts[0].stride = Vertex.stride()
         
@@ -69,6 +76,19 @@ extension MetalManager {
         depthStencilDescriptor.isDepthWriteEnabled = true
         depthStencilDescriptor.depthCompareFunction = .less
         return device.makeDepthStencilState(descriptor: depthStencilDescriptor)!
+    }
+    
+    func makeSamplerState() -> MTLSamplerState {
+        let descriptor = MTLSamplerDescriptor()
+        descriptor.minFilter = .linear
+        descriptor.magFilter = .linear
+        return device.makeSamplerState(descriptor: descriptor)!
+    }
+    
+    func makeTexture(named name: String) -> MTLTexture {
+        let loader = MTKTextureLoader(device: device)
+        let options = [ MTKTextureLoader.Option.origin: MTKTextureLoader.Origin.topLeft ]
+        return try! loader.newTexture(name: name, scaleFactor: 1, bundle: nil, options: options)
     }
     
     func makeRenderPipelineState() -> MTLRenderPipelineState {

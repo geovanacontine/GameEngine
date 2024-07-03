@@ -1,6 +1,6 @@
 import Foundation
 
-struct MovementSystem: System {
+struct Movement2DSystem: System {
     func update(entityManager: EntityManager, deltaTime: TimeInterval) {
         entityManager.forEach(Velocity.self, Position.self) { velocity, position in
             let nextX = position.x + velocity.x * deltaTime

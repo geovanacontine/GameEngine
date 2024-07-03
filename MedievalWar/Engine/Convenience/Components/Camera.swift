@@ -7,4 +7,5 @@ struct Camera: Component {
 
 enum CameraProjectionType {
     case perspective
+    case orthographic
 }

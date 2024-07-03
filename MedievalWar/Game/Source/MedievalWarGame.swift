@@ -15,28 +15,26 @@ class MedievalWarGame {
         world.registerSystems(
             AnalyticsSystem(),
             InputSystem(),
-            MovementSystem(),
+            Movement2DSystem(),
             RotationSystem(),
             CameraSystem(),
-            RenderSystem()
+            Render2DSystem()
         )
         
         world.entityManager.spawn(
-            Camera(isActive: true, projectionType: .perspective),
+            Camera(isActive: true, projectionType: .orthographic),
             Rotation(x: 0, y: 0, z: 0),
-            Position(x: 0, y: 0, z: -10)
+            Position(x: 0, y: 0, z: 0)
         )
         
-        for y in -20..<20 {
-            for i in -20..<20 {
-                world.entityManager.spawn(
-                    Mesh(type: .cube),
-                    Scale(x: 0.1, y: 0.1, z: 0.1),
-                    Rotation(x: 0, y: 0, z: 0),
-                    Position(x: Double(y)/3, y: Double(i) * 0.3, z: 0),
-                    Velocity(maxSpeed: Double(i) * 0.2, x: 0, y: 0)
-                )
-            }
+        for i in -3...3 {
+            world.entityManager.spawn(
+                Sprite(named: "zombie"),
+                Scale(),
+                Rotation(),
+                Position(x: Double(i) * 2, y: 0),
+                Velocity(maxSpeed: Double(i) * 2)
+            )
         }
     }
 }

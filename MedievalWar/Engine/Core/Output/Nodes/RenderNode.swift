@@ -2,15 +2,15 @@ import Foundation
 
 class RenderNode: Node {
     
-    let mesh: Mesh
+    let sprite: Sprite
     
     init(
-        mesh: Mesh,
+        sprite: Sprite,
         position: Position,
         rotation: Rotation,
         scale: Scale
     ) {
-        self.mesh = mesh
+        self.sprite = sprite
         super.init(position: position, rotation: rotation, scale: scale)
     }
 }
