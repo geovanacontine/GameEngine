@@ -52,6 +52,10 @@
 		01BCBBA62BBC1DC00036BD81 /* MedievalWarGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */; };
 		01BCBBAA2BBC6DCF0036BD81 /* InputSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */; };
 		01BCBBAE2BBC71E40036BD81 /* AppleKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCBBAD2BBC71E40036BD81 /* AppleKeyboard.swift */; };
+		01C3ED812C3EC8FD00AC0883 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3ED802C3EC8FD00AC0883 /* Color.swift */; };
+		01C3ED832C3ECAA000AC0883 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3ED822C3ECAA000AC0883 /* Mesh.swift */; };
+		01C3ED852C3EED1500AC0883 /* FragmentShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3ED842C3EED1500AC0883 /* FragmentShader.swift */; };
+		01C3ED872C3EEFD100AC0883 /* Outline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3ED862C3EEFD100AC0883 /* Outline.swift */; };
 		01CE7F2A2BB5D2F2003B73CC /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE7F292BB5D2F2003B73CC /* MainApp.swift */; };
 		01CE7F2E2BB5D2F3003B73CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CE7F2D2BB5D2F3003B73CC /* Assets.xcassets */; };
 		01CE7F312BB5D2F3003B73CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CE7F302BB5D2F3003B73CC /* Preview Assets.xcassets */; };
@@ -124,6 +128,10 @@
 		01BCBBA52BBC1DC00036BD81 /* MedievalWarGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedievalWarGame.swift; sourceTree = "<group>"; };
 		01BCBBA92BBC6DCF0036BD81 /* InputSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSystem.swift; sourceTree = "<group>"; };
 		01BCBBAD2BBC71E40036BD81 /* AppleKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleKeyboard.swift; sourceTree = "<group>"; };
+		01C3ED802C3EC8FD00AC0883 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		01C3ED822C3ECAA000AC0883 /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		01C3ED842C3EED1500AC0883 /* FragmentShader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentShader.swift; sourceTree = "<group>"; };
+		01C3ED862C3EEFD100AC0883 /* Outline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outline.swift; sourceTree = "<group>"; };
 		01CE7F262BB5D2F2003B73CC /* MedievalWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedievalWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CE7F292BB5D2F2003B73CC /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		01CE7F2D2BB5D2F3003B73CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +172,7 @@
 			children = (
 				01ED03772BFE334F00E3EFA4 /* Vertex.swift */,
 				01ED035A2BFE1B4700E3EFA4 /* MetalLibraryError.swift */,
+				01C3ED842C3EED1500AC0883 /* FragmentShader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -267,6 +276,9 @@
 				014BD2452C0798F400B1663B /* Rotation.swift */,
 				014BD2432C0798E900B1663B /* Scale.swift */,
 				012F5C3E2BFF6EEF00184463 /* Sprite.swift */,
+				01C3ED802C3EC8FD00AC0883 /* Color.swift */,
+				01C3ED822C3ECAA000AC0883 /* Mesh.swift */,
+				01C3ED862C3EEFD100AC0883 /* Outline.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -533,6 +545,7 @@
 				01ED036E2BFE1B4700E3EFA4 /* Shaders.metal in Sources */,
 				019352E72BBDA11E0082A1BF /* BVH.swift in Sources */,
 				01821F3D2C109199000C1967 /* Archetype+Private.swift in Sources */,
+				01C3ED872C3EEFD100AC0883 /* Outline.swift in Sources */,
 				013A64EA2C1331B9001FBFFF /* Node.swift in Sources */,
 				014BD2462C0798F400B1663B /* Rotation.swift in Sources */,
 				01BCBBAA2BBC6DCF0036BD81 /* InputSystem.swift in Sources */,
@@ -542,6 +555,7 @@
 				01ED036C2BFE1B4700E3EFA4 /* MetalManager.swift in Sources */,
 				0155A0F02BBB382C008AEA0B /* World.swift in Sources */,
 				013A64E52C122AFA001FBFFF /* OutputAnalytics.swift in Sources */,
+				01C3ED852C3EED1500AC0883 /* FragmentShader.swift in Sources */,
 				0155A0FF2BBB4347008AEA0B /* Movement2DSystem.swift in Sources */,
 				014BD2442C0798E900B1663B /* Scale.swift in Sources */,
 				013A64DA2C11DBA9001FBFFF /* RotationSystem.swift in Sources */,
@@ -556,6 +570,7 @@
 				01BA77272C0F7DDB00676979 /* Entity.swift in Sources */,
 				01BCBBAE2BBC71E40036BD81 /* AppleKeyboard.swift in Sources */,
 				013A64EE2C1332A7001FBFFF /* CameraSystem.swift in Sources */,
+				01C3ED832C3ECAA000AC0883 /* Mesh.swift in Sources */,
 				01821F3F2C10DC26000C1967 /* EntityManager+Query.swift in Sources */,
 				013A64E32C1227CB001FBFFF /* AppleAnalyticsView.swift in Sources */,
 				013A64EC2C1331C4001FBFFF /* CameraNode.swift in Sources */,
@@ -563,6 +578,7 @@
 				0155A0E72BBB1F48008AEA0B /* AppleGameView.swift in Sources */,
 				012F5C542BFFC0E900184463 /* MetalView.swift in Sources */,
 				012F5C3F2BFF6EEF00184463 /* Sprite.swift in Sources */,
+				01C3ED812C3EC8FD00AC0883 /* Color.swift in Sources */,
 				0155A0F32BBB3A61008AEA0B /* System.swift in Sources */,
 				01ED03682BFE1B4700E3EFA4 /* AppleRender.swift in Sources */,
 				013A64E72C122CDF001FBFFF /* AppleAnalyticsData.swift in Sources */,

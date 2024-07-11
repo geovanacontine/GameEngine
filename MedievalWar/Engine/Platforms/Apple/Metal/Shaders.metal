@@ -32,14 +32,41 @@ vertex RasterizerData basicVertexShader(
     return data;
 }
 
-fragment simd_half4 basicFragmentShader(
+fragment simd_half4 fillFragmentShader(
                                         RasterizerData data [[ stage_in ]],
                                         sampler sampler2d [[ sampler(0) ]],
-                                        texture2d<float> texture [[ texture(0) ]]
+                                        texture2d<float> texture [[ texture(0) ]],
+                                        constant bool &hasTexture [[ buffer(1) ]],
+                                        constant float4 &material [[ buffer(2) ]]
                                         ) {
-
-    simd_float2 textCoord = data.textureCoordinates;
-    simd_float4 color = texture.sample(sampler2d, textCoord);
-
+    simd_float4 color;
+                                  
+    if (hasTexture) {
+        simd_float2 textCoord = data.textureCoordinates;
+        color = texture.sample(sampler2d, textCoord);
+    } else {
+        color = material;
+    }
+                                            
     return simd_half4(color.r, color.g, color.b, color.a);
+}
+
+fragment simd_half4 outlineFragmentShader(
+                                        RasterizerData data [[ stage_in ]],
+                                        constant float4 &material [[ buffer(2) ]],
+                                        constant float &outlineWidth [[ buffer(3) ]]
+                                        ) {
+    simd_float4 color = material;
+    float alpha;
+    float width = outlineWidth;
+                                            
+    if (data.textureCoordinates.x < width || data.textureCoordinates.x > 1 - width) {
+        alpha = 1;
+    } else if (data.textureCoordinates.y < width || data.textureCoordinates.y > 1 - width) {
+        alpha = 1;
+    } else {
+        alpha = 0;
+    }
+                                            
+    return simd_half4(color.r, color.g, color.b, alpha);
 }

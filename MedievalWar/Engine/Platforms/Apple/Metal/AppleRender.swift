@@ -42,7 +42,7 @@ extension AppleRender: MTKViewDelegate {
         guard let commandBuffer = manager.commandQueue.makeCommandBuffer() else { return }
         
         // Background
-        descriptor.colorAttachments[0].clearColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
+        descriptor.colorAttachments[0].clearColor = .init(red: 0, green: 0, blue: 0, alpha: 0)
         
         let encoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)!
         
@@ -65,10 +65,11 @@ extension AppleRender: MTKViewDelegate {
     func render(node: inout RenderNode, withEncoder encoder: MTLRenderCommandEncoder) throws {
         
         // Data
-        let mesh = try manager.meshLibrary.object(ofType: node.sprite.meshType)
+        let pipelineState = manager.makeRenderPipelineState(fragmentShader: node.fragmentShader)
+        let mesh = try manager.meshLibrary.object(ofType: node.mesh.type)
         
         // Pipeline
-        encoder.setRenderPipelineState(manager.renderPipelineState)
+        encoder.setRenderPipelineState(pipelineState)
         encoder.setDepthStencilState(manager.depthStencilState)
         
         // Matrices
@@ -77,7 +78,14 @@ extension AppleRender: MTKViewDelegate {
         
         // Fragment
         encoder.setFragmentSamplerState(manager.samplerState, index: 0)
-        encoder.setFragmentTexture(manager.makeTexture(named: node.sprite.name), index: 0)
+        encoder.setFragmentBytes(&node.hasTexture, length: Bool.size(), index: 1)
+        encoder.setFragmentBytes(&node.material, length: simd_float4.size(), index: 2)
+        encoder.setFragmentBytes(&node.outlineWidth, length: simd_float1.size(), index: 3)
+        
+        // Texture
+        if let sprite = node.sprite {
+            encoder.setFragmentTexture(manager.makeTexture(named: sprite.name), index: 0)
+        }
         
         // Mesh
         encoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)

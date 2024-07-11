@@ -15,6 +15,7 @@ extension Sizable {
     }
 }
 
+extension Bool: Sizable {}
 extension simd_float1: Sizable {}
 extension simd_float2: Sizable {}
 extension simd_float3: Sizable {}

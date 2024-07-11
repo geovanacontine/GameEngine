@@ -12,6 +12,7 @@ struct MetalManager {
     
     // Public Libraries
     let meshLibrary: MeshLibrary
+    let metalLibrary: MTLLibrary
     
     // Data
     var depthStencilState: MTLDepthStencilState!
@@ -27,6 +28,7 @@ struct MetalManager {
         guard let defaultLibrary = device.makeDefaultLibrary() else { throw MetalLibraryError.defaultLibraryNotFound }
         guard let commandQueue = device.makeCommandQueue() else { throw MetalLibraryError.defaultCommandQueueNotFound }
         
+        self.metalLibrary = defaultLibrary
         self.pixelFormat = .bgra8Unorm_srgb
         self.depthStencilPixelFormat = .depth32Float
         
@@ -34,12 +36,9 @@ struct MetalManager {
         self.commandQueue = commandQueue
         
         meshLibrary = MeshLibrary(device: device)
-        
         vertexFunction = defaultLibrary.makeFunction(name: "basicVertexShader")!
-        fragmentFunction = defaultLibrary.makeFunction(name: "basicFragmentShader")!
         vertexDescriptor = makeVertexDescriptor()
         depthStencilState = makeDepthStencilState()
-        renderPipelineState = makeRenderPipelineState()
         samplerState = makeSamplerState()
     }
 }
@@ -91,13 +90,24 @@ extension MetalManager {
         return try! loader.newTexture(name: name, scaleFactor: 1, bundle: nil, options: options)
     }
     
-    func makeRenderPipelineState() -> MTLRenderPipelineState {
+    func makeRenderPipelineState(fragmentShader: FragmentShader) -> MTLRenderPipelineState {
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.colorAttachments[0].pixelFormat = pixelFormat
+        
+        let color = pipelineDescriptor.colorAttachments[0]!
+        color.pixelFormat = pixelFormat
+        color.isBlendingEnabled = true
+        color.rgbBlendOperation = .add
+        color.alphaBlendOperation = .add
+        color.sourceRGBBlendFactor = .sourceAlpha
+        color.sourceAlphaBlendFactor = .sourceAlpha
+        color.destinationRGBBlendFactor = .oneMinusSourceAlpha
+        color.destinationAlphaBlendFactor = .oneMinusSourceAlpha
+        
         pipelineDescriptor.depthAttachmentPixelFormat = depthStencilPixelFormat
         pipelineDescriptor.vertexFunction = vertexFunction
-        pipelineDescriptor.fragmentFunction = fragmentFunction
+        pipelineDescriptor.fragmentFunction = metalLibrary.makeFunction(name: fragmentShader.functionName)!
         pipelineDescriptor.vertexDescriptor = vertexDescriptor
+        
         return try! device.makeRenderPipelineState(descriptor: pipelineDescriptor)
     }
 }
